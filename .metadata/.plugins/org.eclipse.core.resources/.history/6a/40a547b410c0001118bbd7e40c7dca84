@@ -1,0 +1,16 @@
+package Selenium.revision.date_4_Oct;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class BrowserMethods_Step2 {
+
+	public BrowserMethods_Step2() {
+		// TODO Auto-generated constructor stub
+		
+		WebDriver driver = new ChromeDriver()
+	}
+
+	// Open Url
+
+}

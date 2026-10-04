@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite parallel = "tests" name="Purchase Order">
+
+<listeners>
+	<listener class-name = "Personal.EcommereceSeleniumProjectTests.TestComponents.Listeners"/>
+</listeners>
+
+	<groups>
+		<run>
+			<include name="Purchase"/>
+		</run>
+	</groups>
+
+	<test name="purchase order Test folder">
+
+		<classes>
+
+			<class
+				name="Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges"/>
+		</classes>
+
+	</test>
+
+</suite>

@@ -1,0 +1,11 @@
+package Selenium.revision.date_4_Oct;
+
+public class SettingUpDriver_Step1 {
+	
+	
+	//1. Install selenium java and testNG dependency in the project pom.xml
+	//2. Download java and save bin path in system and enviornment variables
+	
+	
+
+}

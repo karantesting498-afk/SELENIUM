@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-05-29T00:40:35 IST" name="Purchase Order" finished-at="2026-05-29T00:42:34 IST" duration-ms="119006">
+    <groups>
+      <group name="Purchase">
+        <method signature="StandAloneTestPOMChanges.submitOrder(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@7283d3eb]" name="submitOrder" class="Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges"/>
+        <method signature="StandAloneTestPOMChanges.submitOrder(java.util.HashMap)[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@7283d3eb]" name="submitOrder" class="Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges"/>
+        <method signature="StandAloneTestPOMChanges.submitOrder1(java.util.HashMap)[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@7283d3eb]" name="submitOrder1" class="Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges"/>
+      </group> <!-- Purchase -->
+    </groups>
+    <test started-at="2026-05-29T00:40:35 IST" name="purchase order Test folder" finished-at="2026-05-29T00:42:34 IST" duration-ms="119006">
+      <class name="Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges">
+        <test-method is-config="true" signature="launchApp()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@7283d3eb]" started-at="2026-05-29T00:40:35 IST" name="launchApp" finished-at="2026-05-29T00:40:43 IST" duration-ms="8302" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method signature="submitOrder(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@7283d3eb]" started-at="2026-05-29T00:40:43 IST" name="submitOrder" data-provider="getData" finished-at="2026-05-29T00:40:59 IST" duration-ms="15904" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[karan@mailinator.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Admin@123]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[ZARA COAT]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- submitOrder -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@7283d3eb]" started-at="2026-05-29T00:40:59 IST" name="tearDown" finished-at="2026-05-29T00:41:00 IST" duration-ms="728" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApp()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@7283d3eb]" started-at="2026-05-29T00:41:00 IST" name="launchApp" finished-at="2026-05-29T00:41:04 IST" duration-ms="4196" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method signature="submitOrder(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@7283d3eb]" started-at="2026-05-29T00:41:04 IST" name="submitOrder" data-provider="getData" finished-at="2026-05-29T00:41:20 IST" duration-ms="15604" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[karan@mailinator.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Admin@123]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[ADIDAS]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- submitOrder -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@7283d3eb]" started-at="2026-05-29T00:41:20 IST" name="tearDown" finished-at="2026-05-29T00:41:21 IST" duration-ms="662" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApp()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@7283d3eb]" started-at="2026-05-29T00:41:21 IST" name="launchApp" finished-at="2026-05-29T00:41:25 IST" duration-ms="4522" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method signature="submitOrder(java.util.HashMap)[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@7283d3eb]" started-at="2026-05-29T00:41:25 IST" name="submitOrder" data-provider="getData2" finished-at="2026-05-29T00:41:39 IST" duration-ms="13537" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{password=Admin@123, product=ZARA COAT, email=karan@mailinator.com}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- submitOrder -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@7283d3eb]" started-at="2026-05-29T00:41:39 IST" name="tearDown" finished-at="2026-05-29T00:41:39 IST" duration-ms="626" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApp()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@7283d3eb]" started-at="2026-05-29T00:41:40 IST" name="launchApp" finished-at="2026-05-29T00:41:45 IST" duration-ms="5342" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method signature="submitOrder1(java.util.HashMap)[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@7283d3eb]" started-at="2026-05-29T00:41:45 IST" name="submitOrder1" data-provider="getData3" finished-at="2026-05-29T00:41:59 IST" duration-ms="14363" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{password=Admin@123, product=ADIDAS, email=karan@mailinator.com}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- submitOrder1 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@7283d3eb]" started-at="2026-05-29T00:41:59 IST" name="tearDown" finished-at="2026-05-29T00:42:00 IST" duration-ms="567" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApp()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@7283d3eb]" started-at="2026-05-29T00:42:00 IST" name="launchApp" finished-at="2026-05-29T00:42:08 IST" duration-ms="7617" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method signature="submitOrder1(java.util.HashMap)[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@7283d3eb]" started-at="2026-05-29T00:42:08 IST" name="submitOrder1" data-provider="getData3" finished-at="2026-05-29T00:42:23 IST" duration-ms="15258" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{password=Admin@123, product=ZARA COAT, email=karan@mailinator.com}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- submitOrder1 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@7283d3eb]" started-at="2026-05-29T00:42:23 IST" name="tearDown" finished-at="2026-05-29T00:42:23 IST" duration-ms="637" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApp()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@7283d3eb]" started-at="2026-05-29T00:42:24 IST" name="launchApp" finished-at="2026-05-29T00:42:31 IST" duration-ms="7431" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method signature="orderVerification()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@7283d3eb]" started-at="2026-05-29T00:42:31 IST" name="orderVerification" finished-at="2026-05-29T00:42:33 IST" depends-on-methods="Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges.submitOrder" duration-ms="2565" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- orderVerification -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@7283d3eb]" started-at="2026-05-29T00:42:34 IST" name="tearDown" finished-at="2026-05-29T00:42:34 IST" duration-ms="421" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges -->
+    </test> <!-- purchase order Test folder -->
+  </suite> <!-- Purchase Order -->
+</testng-results>

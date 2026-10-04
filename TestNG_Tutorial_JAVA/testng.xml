@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+ -->
+ <suite name="Suite" parallel ="tests" thread-count = "5">
+	<test thread-count="5" name="Test">
+		<classes>
+			<class name="com_test_annotations.Program1"/>
+			<class name="com_test_annotations.Program2">
+				<methods>
+					<exclude name ="web.*"/>
+				</methods>
+			</class>
+			
+			<class name = "com_test_annotations.Program3">
+				<methods>
+					<include name = "android.*"/>
+				</methods>
+			
+			</class>
+			
+		</classes>
+	</test> <!-- Test -->
+
+</suite> <!-- Suite -->

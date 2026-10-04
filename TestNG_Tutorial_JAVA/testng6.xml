@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="Suite 6">
+
+	<parameter name="url" value="gooogle.com" />
+	<parameter name="browser" value="Chrome" />
+
+
+	<test name = "Folder 1">
+		<parameter name="userName" value="karan bajaj" />
+		<parameter name="password" value="Admin@123456" />
+
+
+		<classes>
+			<class name="com_paramter.Progam1" />
+
+		</classes>
+
+	</test>
+
+</suite>

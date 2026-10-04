@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd"> -->
+<suite name="Suite3">
+
+	<test name="Folder1">
+		<classes>
+			<class name="com_test_annotations.Program1" />
+			<class name="com_test_annotations.Program2" />
+			<class name="com_test_annotations.Program3" />
+			<class name="com_test_annotations.Program4" />
+		</classes>
+	</test>
+
+	<test name="Folder2">
+		<classes>
+			<class name="com_annotations.Program6" />
+			<class name="com_annotations.Program7" />
+			<class name="com_annotations.Program8" />
+			<class name="com_annotations.Program5" />
+		</classes>
+	</test>
+
+</suite> <!-- Suite -->

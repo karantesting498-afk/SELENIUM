@@ -1,0 +1,10 @@
+package test_annotations;
+
+public class Program1 {
+	
+	public void demo()
+	{
+		System.out.println("Hello");
+	}
+
+}

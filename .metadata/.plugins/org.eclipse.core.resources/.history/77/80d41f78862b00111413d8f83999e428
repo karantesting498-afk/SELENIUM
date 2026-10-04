@@ -1,0 +1,10 @@
+package com.basic_methods;
+
+import org.openqa.selenium.WebDriver;
+
+public class Program2 {
+	
+	static WebDriver driver;
+	
+	driver = Program1.webDriverFactory();
+}

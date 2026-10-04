@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="StandAloneTestPOMChanges (1)" project="EcommereceSeleniumProject" tests="1" started="1" failures="0" errors="1" ignored="0">
+  <testsuite name="Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges" time="0.083" displayname="StandAloneTestPOMChanges" uniqueid="[engine:junit-jupiter]/[class:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges]">
+    <testcase name="submitOrder" classname="Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges" time="0.083" displayname="submitOrder()" uniqueid="[engine:junit-jupiter]/[class:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges]/[method:submitOrder()]">
+      <error>java.io.FileNotFoundException: null\src\main\java\Personal\EcommereceSeleniumProject\resources\GlobalData.properties (The system cannot find the path specified)&#13;
+	at java.base/java.io.FileInputStream.open0(Native Method)&#13;
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)&#13;
+	at java.base/java.io.FileInputStream.&lt;init&gt;(FileInputStream.java:159)&#13;
+	at java.base/java.io.FileInputStream.&lt;init&gt;(FileInputStream.java:112)&#13;
+	at Personal.EcommereceSeleniumProjectTests.TestComponents.BaseTest.initializeDriver(BaseTest.java:21)&#13;
+	at Personal.EcommereceSeleniumProjectTests.TestComponents.BaseTest.launchApp(BaseTest.java:48)&#13;
+	at Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges.submitOrder(StandAloneTestPOMChanges.java:32)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+</testrun>

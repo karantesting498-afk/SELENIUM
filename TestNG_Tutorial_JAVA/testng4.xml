@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="Suite 4">
+
+	<test name="Folder 1">
+
+		<groups>
+			<run>
+				<include name="Positive" />
+				<include name="Smoke" />
+				<exclude name="Regression" />
+
+
+			</run>
+
+		</groups>
+
+		<classes>
+			<class name="com_grouping.Program1" />
+			<class name="com_grouping.Program2" />
+
+
+		</classes>
+
+	</test>
+
+</suite>

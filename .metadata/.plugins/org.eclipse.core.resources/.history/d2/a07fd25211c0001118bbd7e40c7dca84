@@ -1,0 +1,41 @@
+package Selenium.revision.date_4_Oct;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class BrowserMethods_Step2 {
+	WebDriver driver;
+
+	public BrowserMethods_Step2(WebDriver driver) {
+		// TODO Auto-generated constructor stub
+		
+		this.driver= driver;
+	}	
+
+	// Open Url
+	public void openURL()
+	{
+		driver.get("https://tfqa.trackofarm.in");
+		
+		
+	}
+	
+	//get tab title
+	public void getTitle()
+	{
+		driver.getTitle();
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		WebDriver driver = new ChromeDriver();
+
+		BrowserMethods_Step2 b = new BrowserMethods_Step2(driver);
+
+		
+		b.openURL();
+		b.getTitle();
+	}
+
+}

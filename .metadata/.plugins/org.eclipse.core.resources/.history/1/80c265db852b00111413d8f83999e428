@@ -1,0 +1,205 @@
+package com.basic_methods;
+
+import java.time.Duration;
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Program1 {
+	
+	static WebDriver driver;
+	static String parent;
+	
+	//TO open the browser
+	public static WebDriver webDriverFactory()
+	{
+		driver  = new EdgeDriver();
+	}
+	
+	//To open url in a browser window
+	public void navigate()
+	{
+		driver.get("https://rahulshettyacademy.com/");
+	}
+	
+	//To get title
+	public void title()
+	{
+		System.out.println("Title is : " + driver.getTitle());
+	}
+	
+	//To get current url
+	public void getUrl()
+	{
+		System.out.println("current url is : "+ driver.getCurrentUrl());
+	}
+	
+	//To Get Page Source
+	public void getPageSource()
+	{
+		System.out.println(driver.getPageSource());
+	}
+	
+	//To Close a window
+	public void close()
+	{
+		driver.close();
+	}
+	
+	//To Quit browser
+	public void quit()
+	{
+		driver.quit();
+	}
+	
+	//To Navigate in the same browser window
+	public void naviagateTo()
+	{
+		driver.navigate().to("https://google.com");
+	}
+	
+	//TO go back to previous page
+	public void back()
+	{
+		driver.navigate().back();
+	}
+	
+	//To move forward
+	public void forward()
+	{
+		driver.navigate().forward();
+	}
+	
+	//To refresh the screen
+	public void refresh()
+	{
+		driver.navigate().refresh();
+	}
+	
+	//To find link text and tap on it.
+	public void signup()
+	{
+		driver.findElement(By.partialLinkText("Sign")).click();
+	}
+	
+	//TO send data in a text field
+	public void sendData()
+	{
+		WebElement name = driver.findElement(By.id("name"));
+		name.sendKeys("Karan");
+		
+	}
+	
+	//TO check if the web element is present on the screen or not.
+	public void isDisplayed()
+	{
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		
+		WebElement name = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("name")));
+		System.out.println("Web Element name is present or not? "+ name.isDisplayed());
+
+	}
+	
+	//To check whether web element is selected or not.
+	public void isSelected()
+	{
+
+		WebElement checkbox = driver.findElement(By.id("allowMarketingEmails"));
+		System.out.println("Is checkbox selected? "+ checkbox.isSelected());
+	}
+
+	//TO check whether web element is enabled or not.
+	public void isEnabled()
+	{
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		
+		WebElement checkbox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("allowMarketingEmails")));
+		System.out.println("Is checkbox enabled? "+ checkbox.isEnabled());
+	}
+	
+	//To get web Element location
+	public void getLocation()
+	{
+		WebElement checkbox = driver.findElement(By.id("allowMarketingEmails"));
+		
+		org.openqa.selenium.Point location = checkbox.getLocation();
+		System.out.println("Checkbox location is : "  + location.x + "  " + location.y);
+	}
+	
+	//TO Clear a text field
+	public void clear()
+	{
+		WebElement name = driver.findElement(By.id("name"));
+		name.clear();
+	}
+	
+	//TO get web element size
+	public void size()
+	{
+		WebElement name = driver.findElement(By.id("name"));
+		Dimension dimension = name.getSize();
+		System.out.println("Height is : "+ dimension.height + " Widht is : "+ dimension.width);
+
+	}
+	
+	//To Switch Tab
+	public void switchTab()
+	{
+		parent = driver.getWindowHandle();
+		for(String child : driver.getWindowHandles())
+		{
+			if(!child.equals(parent))
+			{
+				driver.switchTo().window(child);
+			}
+		}
+	}
+	
+	//To get attribute
+	public void getAttribute()
+	{
+		WebElement name = driver.findElement(By.id("name"));
+		String att = name.getAttribute("name");
+        System.out.println("Attribute Value: " + att);
+
+	}
+	
+	public static void main(String[] args) {
+		Program1 p =new Program1();
+		
+		webDriverFactory();
+		p.navigate();
+		p.title();
+		p.getUrl();
+		System.out.println("======");
+		p.getPageSource();
+		p.refresh();
+		p.naviagateTo();
+		p.back();
+		p.forward();
+		p.back();
+		p.signup();
+		p.switchTab();
+		p.getUrl();
+		p.isDisplayed();
+		p.isEnabled();
+		p.sendData();
+		p.clear();
+		p.isSelected();
+		p.getLocation();
+		p.size();
+		p.getAttribute();
+		p.getUrl();
+		p.close();
+		driver.switchTo().window(parent);
+		p.getUrl();
+		p.getUrl();
+		p.quit();
+	}
+}

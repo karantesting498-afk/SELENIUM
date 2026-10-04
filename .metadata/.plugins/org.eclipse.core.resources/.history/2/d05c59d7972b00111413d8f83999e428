@@ -1,0 +1,79 @@
+package com.basic_methods;
+
+import java.time.Duration;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Program2 {
+	
+	static WebDriver driver;
+
+	public static void webDriverFactory()
+	{
+		driver = Program1.webDriverFactory();
+	}
+	
+	public static WebElement waitBy(By locator)
+	{
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		return wait.until(ExpectedConditions.elementToBeClickable(locator));
+	}
+	
+	public void navigateToSignUp()
+	{
+		driver.manage().window().maximize();
+		driver.get("https://rahulshettyacademy.com/");
+		driver.getTitle();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+		WebElement signUp =	waitBy(By.partialLinkText("Sign Up"));
+		signUp.click();
+	
+		
+	}
+	public void switchTabs()
+	{
+		String parent = driver.getWindowHandle();
+		Set<String> windows = driver.getWindowHandles();
+		
+		for(String window : windows )
+		{
+			if(!window.equals(parent)) {
+				driver.switchTo().window(window);
+			}
+		}
+	}
+	
+	public void logInWithEmail()
+	{
+		WebElement loginemail = waitBy(By.linkText("Log in"));
+		loginemail.click();
+	}
+	
+	public void testCase1() //ALL data Blank
+	{
+		WebElement register = waitBy(By.id("otp-login-btn"));
+		register.click();
+		
+		//Now fetching error message
+		WebElement error =driver.findElement(By.id("my-error-id"));
+		System.out.println(error.getText());;
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		webDriverFactory();
+		Program2 p = new Program2();
+		p.navigateToSignUp();
+		p.switchTabs();
+		p.testCase1();
+		
+	}
+}

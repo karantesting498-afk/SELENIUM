@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="8" passed="2" failed="5" skipped="1">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-06-20T18:17:27 IST" name="Suite" finished-at="2026-06-20T18:18:54 IST" duration-ms="86281">
+    <groups>
+      <group name="Purchase">
+        <method signature="StandAloneTestPOMChanges.submitOrder(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@243c4f91]" name="submitOrder" class="Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges"/>
+        <method signature="StandAloneTestPOMChanges.submitOrder(java.util.HashMap)[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@243c4f91]" name="submitOrder" class="Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges"/>
+        <method signature="StandAloneTestPOMChanges.submitOrder1(java.util.HashMap)[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@243c4f91]" name="submitOrder1" class="Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges"/>
+      </group> <!-- Purchase -->
+    </groups>
+    <test started-at="2026-06-20T18:17:27 IST" name="Submit Order Test" finished-at="2026-06-20T18:18:35 IST" duration-ms="67279">
+      <class name="Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges">
+        <test-method is-config="true" signature="launchApp()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@243c4f91]" started-at="2026-06-20T18:17:27 IST" name="launchApp" finished-at="2026-06-20T18:17:47 IST" duration-ms="19823" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method signature="submitOrder(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@243c4f91]" started-at="2026-06-20T18:17:47 IST" name="submitOrder" data-provider="getData" finished-at="2026-06-20T18:17:48 IST" duration-ms="209" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[karan@mailinator.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Admin@123]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[ZARA COAT]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.NoSuchWindowException">
+            <message>
+              <![CDATA[no such window: target window already closed
+from unknown error: web view not found
+  (Session info: MicrosoftEdge=149.0.4022.69)
+Build info: version: '4.43.0', revision: 'dd0f534'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [736022473d4166fa7bbbf0484b1524f2, findElement {using=id, value=userPassword}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 149.0.4022.69, fedcm:accounts: true, goog:processID: 8676, ms:edgeOptions: {debuggerAddress: localhost:62971}, msedge: {msedgedriverVersion: 149.0.4022.80 (2d040fee770f..., userDataDir: C:\Users\hp\AppData\Local\T...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62971/devtoo..., se:cdpVersion: 149.0.4022.69, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 736022473d4166fa7bbbf0484b1524f2]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: MicrosoftEdge=149.0.4022.69)
+Build info: version: '4.43.0', revision: 'dd0f534'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [736022473d4166fa7bbbf0484b1524f2, findElement {using=id, value=userPassword}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 149.0.4022.69, fedcm:accounts: true, goog:processID: 8676, ms:edgeOptions: {debuggerAddress: localhost:62971}, msedge: {msedgedriverVersion: 149.0.4022.80 (2d040fee770f..., userDataDir: C:\Users\hp\AppData\Local\T...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62971/devtoo..., se:cdpVersion: 149.0.4022.69, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 736022473d4166fa7bbbf0484b1524f2
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:606)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:429)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:423)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy10.sendKeys(Unknown Source)
+at Personal.EcommereceSeleniumProject.POM.LoginPage.login(LoginPage.java:43)
+at Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges.submitOrder(StandAloneTestPOMChanges.java:25)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:697)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:744)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- submitOrder -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@243c4f91]" started-at="2026-06-20T18:17:48 IST" name="tearDown" finished-at="2026-06-20T18:17:48 IST" duration-ms="415" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApp()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@243c4f91]" started-at="2026-06-20T18:17:48 IST" name="launchApp" finished-at="2026-06-20T18:17:54 IST" duration-ms="6232" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method signature="submitOrder(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@243c4f91]" started-at="2026-06-20T18:17:54 IST" name="submitOrder" data-provider="getData" finished-at="2026-06-20T18:18:01 IST" duration-ms="6941" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[karan@mailinator.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Admin@123]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[ADIDAS]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+            <message>
+              <![CDATA[element click intercepted: Element <button _ngcontent-vsa-c38="" routerlink="/dashboard/cart" class="btn btn-custom" style="margin-top: -10px;" tabindex="0">...</button> is not clickable at point (1104, 133). Other element would receive the click: <div _ngcontent-vsa-c11="" class="ngx-spinner-overlay ng-tns-c11-1 ng-trigger ng-trigger-fadeIn ng-star-inserted ng-animating" style="background-color: rgba(51, 51, 51, 0.8); z-index: 99999; position: fixed;">...</div>
+  (Session info: MicrosoftEdge=149.0.4022.69)
+Build info: version: '4.43.0', revision: 'dd0f534'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [ef2b67a58befe7c0079bc3db39dce388, clickElement {id=f.0DA1D7724BB6C31675AEA723AE22C695.d.70F02D1312984EC979152BC3DB8639EF.e.55}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 149.0.4022.69, fedcm:accounts: true, goog:processID: 18928, ms:edgeOptions: {debuggerAddress: localhost:59647}, msedge: {msedgedriverVersion: 149.0.4022.80 (2d040fee770f..., userDataDir: C:\Users\hp\AppData\Local\T...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59647/devtoo..., se:cdpVersion: 149.0.4022.69, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[EdgeDriver: MicrosoftEdge on windows (ef2b67a58befe7c0079bc3db39dce388)] -> xpath: //button[@routerlink='/dashboard/cart']]
+Session ID: ef2b67a58befe7c0079bc3db39dce388]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <button _ngcontent-vsa-c38="" routerlink="/dashboard/cart" class="btn btn-custom" style="margin-top: -10px;" tabindex="0">...</button> is not clickable at point (1104, 133). Other element would receive the click: <div _ngcontent-vsa-c11="" class="ngx-spinner-overlay ng-tns-c11-1 ng-trigger ng-trigger-fadeIn ng-star-inserted ng-animating" style="background-color: rgba(51, 51, 51, 0.8); z-index: 99999; position: fixed;">...</div>
+  (Session info: MicrosoftEdge=149.0.4022.69)
+Build info: version: '4.43.0', revision: 'dd0f534'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [ef2b67a58befe7c0079bc3db39dce388, clickElement {id=f.0DA1D7724BB6C31675AEA723AE22C695.d.70F02D1312984EC979152BC3DB8639EF.e.55}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 149.0.4022.69, fedcm:accounts: true, goog:processID: 18928, ms:edgeOptions: {debuggerAddress: localhost:59647}, msedge: {msedgedriverVersion: 149.0.4022.80 (2d040fee770f..., userDataDir: C:\Users\hp\AppData\Local\T...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59647/devtoo..., se:cdpVersion: 149.0.4022.69, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[EdgeDriver: MicrosoftEdge on windows (ef2b67a58befe7c0079bc3db39dce388)] -> xpath: //button[@routerlink='/dashboard/cart']]
+Session ID: ef2b67a58befe7c0079bc3db39dce388
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:606)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+at jdk.proxy2/jdk.proxy2.$Proxy10.click(Unknown Source)
+at Personal.EcommereceSeleniumProject.AbstractComponents.AbstractComponent.gotoCart(AbstractComponent.java:62)
+at Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges.submitOrder(StandAloneTestPOMChanges.java:54)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:697)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:744)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- submitOrder -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@243c4f91]" started-at="2026-06-20T18:18:01 IST" name="tearDown" finished-at="2026-06-20T18:18:02 IST" duration-ms="344" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApp()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@243c4f91]" started-at="2026-06-20T18:18:02 IST" name="launchApp" finished-at="2026-06-20T18:18:06 IST" duration-ms="4793" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method signature="submitOrder(java.util.HashMap)[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@243c4f91]" started-at="2026-06-20T18:18:06 IST" name="submitOrder" data-provider="getData2" finished-at="2026-06-20T18:18:06 IST" duration-ms="20" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{password=Admin@123, product=ZARA COAT, email=karan@mailinator.com}]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.NoSuchWindowException">
+            <message>
+              <![CDATA[no such window: target window already closed
+from unknown error: web view not found
+  (Session info: MicrosoftEdge=149.0.4022.69)
+Build info: version: '4.43.0', revision: 'dd0f534'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [c5e3439e2a780b3a0abf98d13c523d56, findElement {using=id, value=userEmail}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 149.0.4022.69, fedcm:accounts: true, goog:processID: 19816, ms:edgeOptions: {debuggerAddress: localhost:50606}, msedge: {msedgedriverVersion: 149.0.4022.80 (2d040fee770f..., userDataDir: C:\Users\hp\AppData\Local\T...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50606/devtoo..., se:cdpVersion: 149.0.4022.69, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: c5e3439e2a780b3a0abf98d13c523d56]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: MicrosoftEdge=149.0.4022.69)
+Build info: version: '4.43.0', revision: 'dd0f534'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [c5e3439e2a780b3a0abf98d13c523d56, findElement {using=id, value=userEmail}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 149.0.4022.69, fedcm:accounts: true, goog:processID: 19816, ms:edgeOptions: {debuggerAddress: localhost:50606}, msedge: {msedgedriverVersion: 149.0.4022.80 (2d040fee770f..., userDataDir: C:\Users\hp\AppData\Local\T...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50606/devtoo..., se:cdpVersion: 149.0.4022.69, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: c5e3439e2a780b3a0abf98d13c523d56
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:606)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:67)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:429)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:423)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy10.sendKeys(Unknown Source)
+at Personal.EcommereceSeleniumProject.POM.LoginPage.login(LoginPage.java:41)
+at Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges.submitOrder(StandAloneTestPOMChanges.java:74)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:697)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:744)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- submitOrder -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@243c4f91]" started-at="2026-06-20T18:18:06 IST" name="tearDown" finished-at="2026-06-20T18:18:07 IST" duration-ms="360" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApp()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@243c4f91]" started-at="2026-06-20T18:18:08 IST" name="launchApp" finished-at="2026-06-20T18:18:10 IST" duration-ms="2344" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method signature="submitOrder1(java.util.HashMap)[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@243c4f91]" started-at="2026-06-20T18:18:10 IST" name="submitOrder1" data-provider="getData3" finished-at="2026-06-20T18:18:10 IST" duration-ms="14" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{password=Admin@123, product=ADIDAS, email=karan@mailinator.com}]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.NoSuchWindowException">
+            <message>
+              <![CDATA[no such window: target window already closed
+from unknown error: web view not found
+  (Session info: MicrosoftEdge=149.0.4022.69)
+Build info: version: '4.43.0', revision: 'dd0f534'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [5c16a342645f6fde70acbcd6e6ecfb23, findElement {using=id, value=userEmail}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 149.0.4022.69, fedcm:accounts: true, goog:processID: 9780, ms:edgeOptions: {debuggerAddress: localhost:61969}, msedge: {msedgedriverVersion: 149.0.4022.80 (2d040fee770f..., userDataDir: C:\Users\hp\AppData\Local\T...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61969/devtoo..., se:cdpVersion: 149.0.4022.69, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 5c16a342645f6fde70acbcd6e6ecfb23]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: MicrosoftEdge=149.0.4022.69)
+Build info: version: '4.43.0', revision: 'dd0f534'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [5c16a342645f6fde70acbcd6e6ecfb23, findElement {using=id, value=userEmail}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 149.0.4022.69, fedcm:accounts: true, goog:processID: 9780, ms:edgeOptions: {debuggerAddress: localhost:61969}, msedge: {msedgedriverVersion: 149.0.4022.80 (2d040fee770f..., userDataDir: C:\Users\hp\AppData\Local\T...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61969/devtoo..., se:cdpVersion: 149.0.4022.69, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 5c16a342645f6fde70acbcd6e6ecfb23
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:606)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:67)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:429)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:423)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy10.sendKeys(Unknown Source)
+at Personal.EcommereceSeleniumProject.POM.LoginPage.login(LoginPage.java:41)
+at Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges.submitOrder1(StandAloneTestPOMChanges.java:102)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:697)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:744)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- submitOrder1 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@243c4f91]" started-at="2026-06-20T18:18:10 IST" name="tearDown" finished-at="2026-06-20T18:18:10 IST" duration-ms="356" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApp()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@243c4f91]" started-at="2026-06-20T18:18:10 IST" name="launchApp" finished-at="2026-06-20T18:18:16 IST" duration-ms="5326" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method signature="submitOrder1(java.util.HashMap)[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@243c4f91]" started-at="2026-06-20T18:18:16 IST" name="submitOrder1" data-provider="getData3" finished-at="2026-06-20T18:18:33 IST" duration-ms="17161" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{password=Admin@123, product=ZARA COAT, email=karan@mailinator.com}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- submitOrder1 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@243c4f91]" started-at="2026-06-20T18:18:33 IST" name="tearDown" finished-at="2026-06-20T18:18:35 IST" duration-ms="1645" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method signature="orderVerification()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@243c4f91]" started-at="2026-06-20T18:18:35 IST" name="orderVerification" finished-at="2026-06-20T18:18:35 IST" depends-on-methods="Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges.submitOrder" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges.orderVerification() on instance Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@243c4f91 depends on not successfully finished methods 
+[Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges.submitOrder() on instance Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@243c4f91
+Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges.submitOrder() on instance Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@243c4f91]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges.orderVerification() on instance Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@243c4f91 depends on not successfully finished methods 
+[Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges.submitOrder() on instance Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@243c4f91
+Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges.submitOrder() on instance Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges@243c4f91]
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:159)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:744)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- orderVerification -->
+      </class> <!-- Personal.EcommereceSeleniumProjectTests.StandAloneTestPOMChanges -->
+    </test> <!-- Submit Order Test -->
+    <test started-at="2026-06-20T18:18:35 IST" name="Error Validation Test" finished-at="2026-06-20T18:18:54 IST" duration-ms="18795">
+      <class name="Personal.EcommereceSeleniumProjectTests.ErrorValidations">
+        <test-method is-config="true" signature="launchApp()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.ErrorValidations@5b8dfcc1]" started-at="2026-06-20T18:18:35 IST" name="launchApp" finished-at="2026-06-20T18:18:42 IST" duration-ms="7059" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method signature="loginErrorValidation()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.ErrorValidations@5b8dfcc1]" started-at="2026-06-20T18:18:42 IST" name="loginErrorValidation" finished-at="2026-06-20T18:18:42 IST" duration-ms="19" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchWindowException">
+            <message>
+              <![CDATA[no such window: target window already closed
+from unknown error: web view not found
+  (Session info: MicrosoftEdge=149.0.4022.69)
+Build info: version: '4.43.0', revision: 'dd0f534'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [de6c5fe27137600aa75d270828ea705b, findElement {using=id, value=userEmail}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 149.0.4022.69, fedcm:accounts: true, goog:processID: 18956, ms:edgeOptions: {debuggerAddress: localhost:64749}, msedge: {msedgedriverVersion: 149.0.4022.80 (2d040fee770f..., userDataDir: C:\Users\hp\AppData\Local\T...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64749/devtoo..., se:cdpVersion: 149.0.4022.69, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: de6c5fe27137600aa75d270828ea705b]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: MicrosoftEdge=149.0.4022.69)
+Build info: version: '4.43.0', revision: 'dd0f534'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [de6c5fe27137600aa75d270828ea705b, findElement {using=id, value=userEmail}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 149.0.4022.69, fedcm:accounts: true, goog:processID: 18956, ms:edgeOptions: {debuggerAddress: localhost:64749}, msedge: {msedgedriverVersion: 149.0.4022.80 (2d040fee770f..., userDataDir: C:\Users\hp\AppData\Local\T...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64749/devtoo..., se:cdpVersion: 149.0.4022.69, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: de6c5fe27137600aa75d270828ea705b
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:606)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:67)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:429)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:423)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy10.sendKeys(Unknown Source)
+at Personal.EcommereceSeleniumProject.POM.LoginPage.login(LoginPage.java:41)
+at Personal.EcommereceSeleniumProjectTests.ErrorValidations.loginErrorValidation(ErrorValidations.java:25)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:697)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:744)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginErrorValidation -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.ErrorValidations@5b8dfcc1]" started-at="2026-06-20T18:18:42 IST" name="tearDown" finished-at="2026-06-20T18:18:42 IST" duration-ms="466" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApp()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.ErrorValidations@5b8dfcc1]" started-at="2026-06-20T18:18:42 IST" name="launchApp" finished-at="2026-06-20T18:18:47 IST" duration-ms="4724" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method signature="productErrorValidation()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.ErrorValidations@5b8dfcc1]" started-at="2026-06-20T18:18:47 IST" name="productErrorValidation" finished-at="2026-06-20T18:18:53 IST" duration-ms="5983" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- productErrorValidation -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Personal.EcommereceSeleniumProjectTests.ErrorValidations@5b8dfcc1]" started-at="2026-06-20T18:18:53 IST" name="tearDown" finished-at="2026-06-20T18:18:54 IST" duration-ms="526" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- Personal.EcommereceSeleniumProjectTests.ErrorValidations -->
+    </test> <!-- Error Validation Test -->
+  </suite> <!-- Suite -->
+</testng-results>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="suite 5">
+
+<listeners>
+	<listener class-name  = "com_listeners.Listerners"/>
+</listeners>
+
+	<test name="Folder 1">
+
+		<classes>
+			<class name="com_dependency.Program1" />
+
+			<class name="com_dependency.DependencyProgram2" />
+
+		</classes>
+
+
+	</test>
+
+
+</suite>

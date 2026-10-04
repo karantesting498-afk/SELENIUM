@@ -1,0 +1,135 @@
+package Selenium.revision.date_4_Oct;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class BrowserMethods_Step2 {
+	WebDriver driver;
+
+	public BrowserMethods_Step2(WebDriver driver) {
+		// TODO Auto-generated constructor stub
+		
+		this.driver= driver;
+	}	
+
+	// Open Url
+	public void openURL()
+	{
+		driver.get("https://tfqa.trackofarm.in");
+		
+		
+	}
+	
+	//get tab title and print it
+	public void getTitle()
+	{
+		System.out.println(driver.getTitle());
+	}
+	
+	//get current tab url  and print it
+	public void getCurrentUrl()
+	{
+		System.out.println(driver.getCurrentUrl());
+	}
+	
+	//get current page source  and print it
+	public void getPageSource()
+	{
+		System.out.println(driver.getPageSource());
+	}
+	
+	//close current tab
+	public void closeTab()
+	{
+		driver.close();
+	}
+	
+	//close all  tab
+	public void closeAllTab()
+	{
+		driver.quit();
+	}
+	
+	//navigate to another url
+	public void navigate(String url)
+	{
+		driver.navigate().to(url);
+	}
+	
+	//back
+	public void back()
+	{
+		driver.navigate().back();
+	}
+	
+	//forward
+	public void forward()
+	{
+		driver.navigate().forward();
+	}
+	
+	//refresh
+	public void refresh()
+	{
+		driver.navigate().refresh();
+	}
+	
+	//Send input data- this enters input text in the field
+	public void sendKeys()
+	{
+		WebElement userName = driver.findElement(By.id("username"));
+		userName.sendKeys("THIS IS USERNAME");
+		
+	}
+	
+	//isDisplayed()- It verifies whether a element is present and visible on the page. Return boolean value
+	public void isDisplayed()
+	{
+		WebElement userName = driver.findElement(By.id("username"));
+
+		System.out.println(userName.isDisplayed());
+	}
+	
+	//isSelected()- It verifies whether a element is selected or not. Return boolean value
+	public void isSelected()
+	{
+		WebElement userName = driver.findElement(By.id("username"));
+
+		System.out.println(userName.isSelected());
+	}
+	
+	//submit - to tap on save/edit button
+	
+	public void submit() {
+		
+		WebElement userName = driver.findElement(By.id("username"));
+
+		userName.submit();
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		
+		WebDriver driver = new ChromeDriver();
+
+		BrowserMethods_Step2 b = new BrowserMethods_Step2(driver);
+
+		
+		b.openURL();
+		b.getTitle();
+		b.getCurrentUrl();
+		b.navigate("https://live.trackofield.com");
+		b.back();
+		b.forward();
+		b.refresh();
+		
+		b.getPageSource();
+		b.closeTab();
+		b.closeAllTab();
+	}
+	
+
+}
