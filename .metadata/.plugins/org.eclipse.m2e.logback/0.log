@@ -8987,3 +8987,5 @@ Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: end tag nam
 2026-10-06 00:06:58,858 [Worker-84: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\selenium\workspace\revision\src\test\resources
 2026-10-06 00:07:41,977 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\selenium\workspace\revision\src\main\resources
 2026-10-06 00:07:41,982 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\selenium\workspace\revision\src\test\resources
+2026-10-06 00:08:29,573 [Worker-83: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\selenium\workspace\revision\src\main\resources
+2026-10-06 00:08:29,578 [Worker-83: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\selenium\workspace\revision\src\test\resources

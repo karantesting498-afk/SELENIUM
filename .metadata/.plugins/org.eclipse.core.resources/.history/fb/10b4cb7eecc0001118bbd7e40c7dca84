@@ -21,8 +21,6 @@ public class BrowserMethods_Step2 {
 	{
 		driver.get("https://tfqa.trackofarm.in");
 		
-		//driver.get have by default wait till all components are loaded
-		
 		
 	}
 	
