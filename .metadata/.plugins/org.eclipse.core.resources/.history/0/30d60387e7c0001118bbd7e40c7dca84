@@ -1,0 +1,32 @@
+package Selenium.revision.date_5_oct;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Selectors_Step1 {
+	
+	WebDriver driver = new ChromeDriver();
+	
+	
+	//<input id="username">
+	
+	public void selectorId()
+	{
+		WebElement userName =  driver.findElement(By.id("username"));
+	}
+	
+	//<input name="email">
+	public void selectorName()
+	{
+		WebElement email =  driver.findElement(By.name("email"));
+	}
+	
+	//<button class="login-button">Login</button>
+	public void selectorClassName()
+	{
+		WebElement loginClass =  driver.findElement(By.name("email"));
+	}
+
+}

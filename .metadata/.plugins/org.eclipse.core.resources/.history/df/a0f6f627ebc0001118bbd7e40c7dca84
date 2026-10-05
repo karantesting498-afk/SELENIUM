@@ -1,0 +1,122 @@
+package Selenium.revision.date_5_oct;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Selectors_Step1 {
+	
+	WebDriver driver = new ChromeDriver();
+	
+	
+	//<input id="username">
+	
+	public void selectorId()
+	{
+		WebElement userName =  driver.findElement(By.id("username"));
+	}
+	
+	//<input name="email">
+	public void selectorName()
+	{
+		WebElement email =  driver.findElement(By.name("email"));
+	}
+	
+	//<button class="login-button">Login</button>
+	//<button class="btn primary login">
+	public void selectorClassName()
+	{
+		WebElement loginClass =  driver.findElement(By.className("login-button"));
+		
+		//By.className("btn primary login")- incorrect
+		WebElement loginClass2 =  driver.findElement(By.className("login"));
+
+		
+	}
+	
+	/*
+	 * input
+	button
+	div
+	a
+	 */
+	
+	
+	public void selectorTagName()
+	{
+		WebElement tag1 = driver.findElement(By.tagName("input"));// here we can replace input with div, button, a
+		
+		List<WebElement> inputtags = driver.findElements(By.tagName("input"));// here we can replace input with div, button, a
+	}
+	
+	
+	//<a href="/forgot">Forgot Password</a>
+	
+	public void selectorLinkText()
+	{
+		WebElement link = driver.findElement(By.linkText("Forgot Password"));
+		
+		//partial link text
+		
+		WebElement link2 = driver.findElement(By.partialLinkText(" Password"));
+
+	}
+	
+	
+	//CSS
+	
+	public void selectorCSS()
+	{
+
+		//using id :
+		
+		WebElement css1 = driver.findElement(By.cssSelector("#username"));
+		
+		//using class
+		WebElement css2 = driver.findElement(By.cssSelector(".login-button"));
+		
+		//By attribute
+		WebElement css3 = driver.findElement(By.cssSelector("input[id='username'"));
+		
+		//Tag + id
+		
+		WebElement css4 = driver.findElement(By.cssSelector("input#username"));
+		
+		//Tag + class
+		
+		WebElement css5 = driver.findElement(By.cssSelector("button.login-button"));
+		
+		//Multiple attributes
+		
+		WebElement css6 =driver.findElement(By.cssSelector("input[id='username'][name='email']"));
+		
+		//Starts with
+		WebElement css7 = driver.findElement(By.cssSelector("input[id^='user']"));
+		
+		//ends with 
+		WebElement css8 = driver.findElement(By.cssSelector("input[id$='name']"));
+		
+		//contains
+		WebElement css9 = driver.findElement(By.cssSelector("input[id*='user']"));
+		
+	}
+	
+	//X-Path
+	
+	public void selectorXpath()	
+	{
+		
+		//basic- id, name
+		WebElement x1 = driver.findElement(By.xpath("input[@id='username']"));
+		WebElement x2 = driver.findElement(By.xpath("input[@name='email']"));
+		
+		//Using text
+		
+		WebElement x3 = driver.findElement(By.xpath("//button[contains(text,'login')]"));
+
+	}
+
+}

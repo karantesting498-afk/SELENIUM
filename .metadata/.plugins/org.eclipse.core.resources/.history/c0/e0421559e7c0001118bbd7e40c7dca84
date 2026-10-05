@@ -1,0 +1,18 @@
+package Selenium.revision.date_5_oct;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Selectors_Step1 {
+	
+	WebDriver driver = new ChromeDriver();
+	
+	
+	//<input id="username">
+	
+	public void selectorId()
+	{
+		driver.fin
+	}
+
+}
