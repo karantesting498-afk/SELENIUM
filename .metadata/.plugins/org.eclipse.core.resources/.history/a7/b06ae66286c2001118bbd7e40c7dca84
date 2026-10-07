@@ -1,0 +1,129 @@
+package Selenium.revision.date_5_oct;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class Basic_Selector_questions_Step2 {
+	
+	WebDriver driver;
+	
+	/*1. Write a Selenium locator using only By.id() to locate the username field.
+	 * <input type="text"
+       id="employee_username_7845"
+       name="username"
+       placeholder="Enter Username">
+       
+       2. Write a Selenium statement that: Locates the button using By.id() , Stores it inside a WebElement and Clicks it
+       
+       	<button id="saveEmployee"
+        class="btn btn-primary"
+        type="submit">
+    	Save Employee
+		</button>
+		
+		3. Locate this element using only By.name().
+		
+		<input type="email"
+       id="employeeEmail"
+       name="official_email"
+       placeholder="Official Email">
+       
+       4. Answer: How many elements match?  Which element will findElement() return? How would you retrieve both matching elements?
+       
+       <input type="text" name="employeeCode">
+		<input type="hidden" name="employeeCode">
+		
+		5.
+		
+		<button class="btn primary-action save-employee active">
+    		Save
+		</button>
+		
+		Which of these are valid?
+		
+		By.className("btn")
+
+		By.className("save-employee")
+
+		By.className("btn primary-action")
+
+		By.className("primary-action save-employee active")
+		
+		
+		6.
+		<button class="btn action">Add</button>
+
+		<button class="btn action">Edit</button>
+
+		<button class="btn action disabled">Delete</button>
+		
+		List<WebElement> elements =
+        driver.findElements(By.className("action"));
+        
+        Answer:
+
+		What will elements.size() return?
+		Can By.className() uniquely locate the Delete button using "action disabled"?
+		Why?
+
+		7. 
+		Write Selenium code using By.tagName() to:
+
+		Find all <input> elements
+		Print how many input elements exist
+		
+		<input type="text">
+		<input type="email">
+		<input type="password">
+		<button>Login</button>
+		<input type="hidden">
+	 */
+	
+	public void firstQuestion()
+	{
+		WebElement id1 =driver.findElement(By.id("employee_username_7845"));
+	}
+	
+	public void secondQuestion()
+	{
+		WebElement id2 =driver.findElement(By.id("saveEmployee"));
+		id2.click();
+	}
+	
+	public void thirdQuestion()
+	{
+		WebElement name1 =driver.findElement(By.name("official_email"));
+		name1.sendKeys("Karan Bajaj");
+	}
+	
+	public void fourthQuestion()
+	{
+		WebElement name2 =driver.findElement(By.name("employeeCode"));
+		// it will retrieve first element. TO retrive both use : List<WebElement> name2 = driver.findElements(By.name
+	}
+	
+	public void fifthQuestion()
+	{
+		//		By.className("btn") - valid
+		//By.className("save-employee")- valid
+		//		By.className("btn primary-action") - invalid as there cannot be space between class name
+		//		By.className("primary-action save-employee active") - invalid as there cannot be space between class name
+	
+	}
+
+	public void sixthQuestion()
+	{
+		// size will be 3
+		// no By.className() uniquely locate the Delete button using "action disabled" as  because class name cannot have space in between
+	}
+	
+	public void seventhQuestion()
+	{
+		List<WebElement> tag1 = driver.findElements(By.tagName("input"));
+		
+		
+	}
+}

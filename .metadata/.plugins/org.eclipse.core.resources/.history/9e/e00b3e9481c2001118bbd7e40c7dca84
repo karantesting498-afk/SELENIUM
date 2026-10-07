@@ -1,0 +1,38 @@
+package Selenium.revision.date_5_oct;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class Basic_Selector_questions_Step2 {
+	
+	WebDriver driver;
+	
+	/*1. Write a Selenium locator using only By.id() to locate the username field.
+	 * <input type="text"
+       id="employee_username_7845"
+       name="username"
+       placeholder="Enter Username">
+       
+       2. Write a Selenium statement that: Locates the button using By.id() , Stores it inside a WebElement and Clicks it
+       
+       	<button id="saveEmployee"
+        class="btn btn-primary"
+        type="submit">
+    	Save Employee
+		</button>
+	 */
+	
+	public void firstQuestion()
+	{
+		WebElement id1 =driver.findElement(By.id("employee_username_7845"));
+	}
+	
+	public void secondQuestion()
+	{
+		WebElement id2 =driver.findElement(By.id("saveEmployee"));
+		id2.click();
+	}
+
+
+}

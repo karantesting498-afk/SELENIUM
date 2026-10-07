@@ -1,0 +1,23 @@
+package Selenium.revision.date_5_oct;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class Basic_Selector_questions_Step2 {
+	
+	WebDriver driver;
+	
+	/*1.
+	 * <input type="text"
+       id="employee_username_7845"
+       name="username"
+       placeholder="Enter Username">
+	 */
+	
+	public void firstQuestion()
+	{
+		WebElement id1 =driver.findElement(By.id("employee_username_7845"));
+	}
+
+}
