@@ -79,7 +79,7 @@ public class Selectors_Step1 {
 		WebElement css2 = driver.findElement(By.cssSelector(".login-button"));
 		
 		//By attribute
-		WebElement css3 = driver.findElement(By.cssSelector("input[id='username'"));
+		WebElement css3 = driver.findElement(By.cssSelector("input[id='username']"));
 		
 		//Tag + id
 		
