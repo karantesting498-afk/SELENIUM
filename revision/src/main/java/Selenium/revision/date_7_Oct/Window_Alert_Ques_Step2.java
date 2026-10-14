@@ -133,7 +133,6 @@ alert.accept();
  5. NoAlertPresentException
 			 */
 		
-		WebElement a2 = driver.findElement(By.xpath("//div[@class='confirmation-modal']"));
 		
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		
