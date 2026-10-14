@@ -2,9 +2,6 @@
 
 package Selenium.revision.date_6_oct;
 
-import java.time.Duration;
-
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Dynamic_DropDown_Step3 {
 	
