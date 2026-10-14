@@ -9,6 +9,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BrowserMethods_Step2 {
 	WebDriver driver;
+	
+	
 
 	public BrowserMethods_Step2(WebDriver driver) {
 		// TODO Auto-generated constructor stub
