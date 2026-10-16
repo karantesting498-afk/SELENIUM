@@ -284,4 +284,74 @@ Then right-click that element using contextClick().
 		
 		action.moveToElement(emp).contextClick().perform();
 	}
+	
+	//5. clickAndHold()
+	
+	/*
+	 * Q9 — Hold element
+A slider handle requires the mouse button to stay pressed before movement.
+<div id="sliderHandle"></div>
+
+Write Selenium code to:
+- Move to the slider
+- Click and hold
+- Move 100 pixels horizontally
+- Release
+	 */
+	
+	public void ques_09()
+	{
+		WebElement handle = driver.findElement(By.id("sliderHandle"));
+		
+		Actions action = new Actions(driver);
+		
+		action.clickAndHold(handle).moveByOffset(100, 0).release().perform();
+	}
+	
+	/*
+	 * Q10 — Manual drag operation
+You have:
+<div id="task101">Task 101</div>
+<div id="completedArea">Completed</div>
+
+Do not use dragAndDrop().
+Instead use:
+clickAndHold()
+moveToElement()
+release()
+
+to move Task 101 to Completed.
+	 */
+	
+	public void ques10()
+	{
+		WebElement task = driver.findElement(By.id("task101"));
+		WebElement compArea = driver.findElement(By.id("completedArea"));
+		
+		Actions action = new Actions(driver);
+		
+		action.moveToElement(task).clickAndHold().moveToElement(compArea).release().perform();
+	}
+	
+	//6. release()
+	
+	/*
+	 * Q11 — Correct release location
+Suppose:
+actions
+    .clickAndHold(source)
+    .moveToElement(target)
+    .perform();
+
+The developer forgot to release the mouse.
+Answer:
+- What problem could this cause?
+- Add the correct release() operation.
+- Where should release() appear in the chain?
+	 */
+	public void ques_11()
+	{
+		
+	}
 }
+
