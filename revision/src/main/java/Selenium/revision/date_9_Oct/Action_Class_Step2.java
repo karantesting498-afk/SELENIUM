@@ -891,6 +891,14 @@ Use Actions extensively and minimize unnecessary perform() calls.
 		Actions action = new Actions(driver);
 		
 		action.moveToElement(emp).moveToElement(man).click(Search).click(Searchfield).sendKeys("Karan").keyDown(Keys.ENTER).keyUp(Keys.ENTER).release().perform();
+	
+		/*
+		 * more effiecient:
+		 * 
+		 * 		action.moveToElement(emp).moveToElement(man).click(Search).click(Searchfield).sendKeys("Karan").sendKeys(Keys.Enter).release().perform();
+
+		 * 
+		 */
 	}
 	
 	/*
@@ -953,6 +961,130 @@ Explicit wait
 	
 	public void ques_29()
 	{
+		WebElement emp = driver.findElement(By.xpath("//div[@id='employee' and normalize-space(.)='Karan']"));
+		Actions action = new Actions(driver);
+		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		
+		action.contextClick(emp).release().perform();
+		
+		WebElement menu = driver.findElement(By.id("menu"));
+		wait.until(ExpectedConditions.visibilityOf(menu));
+		
+		WebElement more = driver.findElement(By.id("more"));
+
+		action.moveToElement(more).release().perform();
+		
+		WebElement history = driver.findElement(By.id("history"));
+		
+		wait.until(ExpectedConditions.visibilityOf(history));
+		
+		action.moveToElement(history).release().click().perform()	;
+
+		
+	}
+	
+	/*
+	 * Q30 — Select all, replace, double-click
+Input contains:
+Old Employee Name
+
+Requirement:
+1. Click the input
+2. CTRL+A
+3. Release CTRL
+4. Type Karan Sharma
+5. Double-click the entered value
+Write one logical Actions sequence.
+
+Be careful about where:
+keyDown()
+keyUp()
+doubleClick()
+perform()
+
+should be used.
+	 */
+	
+	public void ques_30()
+	{
+		WebElement input = driver.findElement(By.id("input"));
+		
+		Actions action = new Actions(driver);
+		
+		action.click(input).keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys("Karan Sharma").doubleClick().release().perform();
+		
+		/*
+		 * Q30 — Why specify the input again in doubleClick(input)?
+You reasoned that the mouse is already focused on the input. There is an important distinction here:
+- Keyboard focus determines which element receives keyboard input.
+- Mouse pointer position determines where a mouse action such as a double-click occurs.
+Your chain ends with:
+.sendKeys("Karan Sharma")
+.doubleClick()
+
+
+The pointer will generally remain at the position established by click(input), so doubleClick() without an argument will often double-click the input successfully.
+
+Therefore, your original doubleClick() is not necessarily wrong.
+
+Using doubleClick(input) explicitly identifies the target element and moves the pointer to its interaction point before double-clicking. It makes the intended target clearer and avoids relying on the pointer's existing position.
+
+One qualification: double-clicking the input does not guarantee selection of the entire text Karan Sharma; that depends on the pointer position and browser behavior.
+
+Verdict: Your approach can work. Passing the element explicitly is clearer and more robust, but it is not mandatory when the pointer is already positioned correctly.
+		 */
+	}
+	
+	/*
+	 * Q31 — Interview-level drag challenge
+HTML:
+<div class="task"
+     data-id="101">
+    Employee Verification
+</div>
+
+<div class="task"
+     data-id="102">
+    Customer Approval
+</div>
+
+<div class="column"
+     data-status="completed">
+    Completed
+</div>
+
+Requirement:
+- Find Task 102 using data-id
+- Move mouse to it
+- Click and hold
+- Move to the Completed column
+- Move an additional 20px right and 10px down
+- Release the mouse
+- Execute the whole drag operation properly
+- Verify afterward that Task 102 is inside the Completed section
+Do not use:
+dragAndDrop()
+
+You must combine:
+moveToElement()
+clickAndHold()
+moveToElement()
+moveByOffset()
+release()
+perform()
+	 */
+	
+	public void ques_31()
+	{
+		WebElement task = driver.findElement(By.xpath("//div[@data-id='102']"));
+		WebElement comp = driver.findElement(By.xpath("//div[@data-status='completed']"));
+		Actions action = new Actions(driver);
+		
+		action.moveToElement(task).clickAndHold().moveToElement(comp).moveByOffset(20,10).release().perform();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@data-status='completed']/descendant::div[@data-id='102']")));
 		
 	}
 }
