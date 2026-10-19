@@ -375,8 +375,38 @@ Then build the required mouse/keyboard operation and finish it with:
 
 
 
+1. What is build()?
 
+The build() method is used to compile all chained actions into a single Action object.
+• When you call methods like .moveToElement(), .click(), or .dragAndDrop(), they don't execute immediately. Instead, they are queued up.
+• build() essentially bundles this entire sequence together and prepares it for execution.
+• Calling build() does not perform the action on the browser; it only sets up the composite plan and resets the internal builder state.
 
+2. What is perform()?
+
+The perform() method is what actually executes the compiled actions in the browser.
+• Without perform(), your automation script will do nothing on the screen, even if you have chained ten different movements.
+
+=====================================
+
+		/*
+		 * 1. Actions is an class.It have functions like move, click , drag, perform
+		 * 
+		 * Actions is a class in Selenium that provides methods for constructing complex user interactions,
+		 *  such as mouse movements, clicks, drag-and-drop operations, and keyboard actions.
+		 * 
+		 * 
+		 * 
+		 * 2. Action is an interface. Here we provide the combined action to performed in. 
+		 * We provide combined action using build method.
+		 * 
+		 * Action is an interface that represents a composite user interaction that can be executed.
+		 * 
+		 * 
+		 * 3. build() returns an Action object, not an Actions object.
+		 * 
+		 * 
+===============================================================================
 	 */
 
 }

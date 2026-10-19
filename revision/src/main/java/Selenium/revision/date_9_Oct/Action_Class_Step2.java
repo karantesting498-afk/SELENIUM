@@ -2,10 +2,12 @@
 
 package Selenium.revision.date_9_Oct;
 
+import java.awt.Desktop.Action;
 import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -350,6 +352,606 @@ Answer:
 - Where should release() appear in the chain?
 	 */
 	public void ques_11()
+	{
+		/*
+		 * 1. The mouse button remains pressed after the pointer reaches the target.
+
+The drag-and-drop operation may not complete because the mouse button was never released.
+
+The browser may continue treating the mouse as being in a pressed state until it is released or the interaction ends. 
+
+
+		 * 2. after move to target
+		 * 3. actions
+    .clickAndHold(source)
+    .moveToElement(target).release()
+    .perform();
+		 */
+	}
+	
+	/*
+	 * Q12 — Drop after offset
+A draggable element must be:
+- held
+- moved 200 pixels right
+- moved 50 pixels down
+- released
+Write one Actions chain.
+	 */
+	
+	public void ques_12()
+	{
+	    WebElement element = driver.findElement(By.id("draggableElement"));
+
+		Actions action = new Actions(driver);
+		action.clickAndHold(element).moveByOffset(200, 50).release().perform();
+	}
+	
+	//7. dragAndDrop()
+	
+	/*
+	 * Q13 — Basic drag and drop
+HTML:
+<div id="employee">Karan</div>
+<div id="teamA">Team A</div>
+
+Drag employee Karan into Team A using dragAndDrop().
+Then verify that the employee appears under Team A.
+	 */
+	
+	public void ques_13()
+	{
+		WebElement emp = driver.findElement(By.id("employee"));
+
+		WebElement team = driver.findElement(By.id("teamA"));
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
+		Actions action = new Actions(driver);
+		
+		action.dragAndDrop(emp, team).perform();
+		
+		//don't know how to verify
+		
+		  wait.until(ExpectedConditions.visibilityOfElementLocated(
+			        By.xpath("//div[@id='teamA']//div[@id='employee']")
+			    ));
+	}
+	
+	/*
+	 * Q14 — dragAndDrop() fails
+You write:
+actions.dragAndDrop(source, target).perform();
+
+but the application does not perform the drop.
+Answer:
+- Give possible reasons why dragAndDrop() may not work on some modern applications.
+- Write the alternative sequence using:
+  - clickAndHold()
+  - moveToElement()
+  - release()
+	 */
+	
+	public void ques_14()
+	{
+		/*
+		 * 1. don't know
+		 * 1. Possible reasons why dragAndDrop() may fail
+
+You can write these points in your answer:
+
+Custom JavaScript drag-and-drop: The application may depend on specific mouse or drag events that are not triggered as expected by the standard action sequence.
+
+HTML5 drag-and-drop: The application may rely on HTML5 drag events and the DataTransfer object, which can make the standard Selenium drag-and-drop operation insufficient.
+
+Incorrect target location: The pointer may not reach the actual drop zone or an acceptable location within it.
+
+Overlapping elements: An overlay or another element may intercept the interaction.
+
+Timing issues: The application may need time to initialize the drag operation or update the target's state.
+		 * 
+		 *
+		 */
+		
+		WebElement source = driver.findElement(By.id("source"));
+
+		WebElement target = driver.findElement(By.id("target"));
+		
+		Actions action = new Actions(driver);
+		
+		action.clickAndHold(source).moveToElement(target).release().perform();
+	}
+	
+	//8. moveByOffset()
+	
+	/*
+	 * Q15 — Horizontal slider
+A slider starts at position 0.
+You need to move its handle:
+150 pixels right
+0 pixels vertically
+
+Write Selenium code using:
+moveByOffset()
+	 */
+	
+	
+	public void ques_15()
+	{
+	    WebElement handle = driver.findElement(By.id("sliderHandle"));
+
+	    
+		Actions action = new Actions(driver);
+		action.moveToElement(handle).clickAndHold().moveByOffset(150, 0).release().perform();
+	}
+	
+	/*Q16 — Offset direction
+You execute:
+actions.moveByOffset(-100, 50).perform();
+
+Answer:
+- Which horizontal direction does -100 represent?
+- Which vertical direction does 50 represent?
+- What would (100, -50) represent?
+	 * 
+	 */
+	
+	public void ques_16()
+	{
+		/*
+		 * 1. -100 represent left side of the screen.
+		 * 2. 50 represent vertical downward line.
+		 * 3. 100,-50 represent upper right
+		 */
+		
+	}
+	
+	//9. sendKeys()
+	
+	/*
+	 * Q17 — Actions typing
+HTML:
+<input id="username">
+
+Using Actions:
+- Move to username
+- Click it
+- Type karan.qa
+- Do everything in one action chain
+Do not use:
+username.sendKeys(...)
+	 */
+	
+	public void ques_17()
+	{
+		WebElement unmae = driver.findElement(By.id("username"));
+		
+		Actions action = new Actions(driver);
+		
+		action.moveToElement(unmae).click().sendKeys("karan.qa").perform();
+	}
+	
+	/*
+	 * Q18 — Search and Enter
+You have:
+<input id="employeeSearch">
+
+Using Actions:
+- Click the search field
+- Type Rahul
+- Press ENTER
+Use only one perform().
+	 */
+	public void ques_18()
+	{
+		WebElement unmae = driver.findElement(By.id("employeeSearch"));
+
+		Actions action = new Actions(driver);
+		action.moveToElement(unmae).click().sendKeys("Rahul").sendKeys(Keys.ENTER).perform();
+	}
+	
+	//10. keyDown()
+	
+	/*
+	 * Q19 — CTRL + multiple selection
+HTML:
+<div id="employee1">Karan</div>
+<div id="employee2">Rahul</div>
+<div id="employee3">Aman</div>
+
+The application supports multi-selection with CTRL.
+Using Actions:
+- Hold CTRL
+- Click Karan
+- Click Aman
+- Keep CTRL pressed until both clicks are complete
+Do not release CTRL yet in the first part of your answer.
+Then explain what needs to happen afterward.
+	 */
+	
+	public void ques_19()
+	{
+		WebElement empK = driver.findElement(By.id("employee1"));
+		WebElement empR = driver.findElement(By.id("employee3"));
+
+		
+		Actions action = new Actions(driver);
+		
+		action.keyDown(Keys.CONTROL).click(empR).click(empK);
+		
+		/*
+		 * for next we have to
+		 * 		action.keyDown(Keys.CONTROL).click(empR).click(empK).keyUp(Keys.CONTROL).perform();
+
+		 */
+	}
+	
+	/*
+	 * Q20 — SHIFT selection
+Suppose a list supports range selection.
+You want to:
+1. Click Employee 1
+2. Hold SHIFT
+3. Click Employee 5
+Write the Actions sequence using keyDown(Keys.SHIFT).
+	 */
+	
+	public void ques_20()
+	{
+		List<WebElement> emp = driver.findElements(By.xpath("//div[contains(@id,'employee')]"));
+		
+		Actions action = new Actions(driver);
+
+		action.click(emp.get(0)).keyDown(Keys.SHIFT).click(emp.get(4)).keyUp(Keys.SHIFT).perform();
+		
+	}
+	
+	//11. keyUp() —
+	
+	/*
+	 * Q21 — Why keyUp matters
+A tester writes:
+actions
+    .keyDown(Keys.CONTROL)
+    .click(employee1)
+    .click(employee2)
+    .perform();
+
+They never call:
+keyUp(Keys.CONTROL)
+
+Answer:
+- Why is this bad practice?
+- What effect could it have on later interactions?
+- Write the corrected chain.
+	 */
+	
+	public void ques_21()
+	{
+		/*
+		 * 1. It is bad practise becuase control key will remain pressed.
+		 * 2. In later interaction control key will remain preseed which might fail the test case
+		 * Subsequent clicks or keyboard operations may behave differently than expected. For example, 
+		 * clicking another employee could add it to a selection instead of selecting it normally.
+		 * 
+		 * 
+		 * 3. Correct chain is : action.keysDown(KEYS.CONTROL).click(employee1).click(employee2).keysUp(KEYS.CONTROL).perform();
+		 */
+		
+	}
+
+	/*
+	 * Q22 — CTRL+A then type
+You need to replace an existing value in:
+<input id="employeeName" value="Old Employee">
+
+Using Actions:
+1. Click the field
+2. Hold CTRL
+3. Press A
+4. Release CTRL
+5. Type Karan Sharma
+Use:
+keyDown()
+sendKeys()
+keyUp()
+	 */
+	public void ques_22()
+	{
+		
+		WebElement name = driver.findElement(By.id("employeeName"));
+		Actions action = new Actions(driver);
+		
+		action.click(name).keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys("Karan Sharma").build().perform();;
+	}
+
+	
+	//12. build()
+	
+	/*
+	 * Q23 — Build now, perform later
+Create the following action but do not immediately execute it:
+Hover over menu
+↓
+Click menu
+↓
+Type "Employee"
+
+Store the built sequence inside an:
+Action
+
+object.
+Then execute it separately.
+	 */
+	
+	public void ques_23()
+	{
+		WebElement menu = driver.findElement(By.id("menu"));
+		Actions action = new Actions(driver);
+		
+		action.moveToElement(menu).click().sendKeys("Employee");
+		
+		org.openqa.selenium.interactions.Action builder = action.build();
+		
+		builder.perform();
+	}
+	
+	/*
+	 * Q24 — Difference between Actions and Action
+Explain the difference between:
+Actions actions = new Actions(driver);
+
+and:
+Action action = actions
+    .moveToElement(element)
+    .click()
+    .build();
+
+Answer:
+- What is Actions?
+- What is Action?
+- What does build() return?
+- When does the actual browser interaction happen?
+	 */
+
+	public void ques_24()
+	{
+		/*
+		 * 1. Actions is an class.It have functions like move, click , drag, perform
+		 * 
+		 * Actions is a class in Selenium that provides methods for constructing complex user interactions,
+		 *  such as mouse movements, clicks, drag-and-drop operations, and keyboard actions.
+		 * 
+		 * 
+		 * 
+		 * 2. Action is an interface. Here we provide the combined action to performed in. 
+		 * We provide combined action using build method.
+		 * 
+		 * Action is an interface that represents a composite user interaction that can be executed.
+		 * 
+		 * 
+		 * 3. build() returns an Action object, not an Actions object.
+		 * 
+		 * 4. When we use .perform() method
+		 *
+		 */
+	}
+	
+	//13. perform()
+	
+	
+	/*
+	 * Q25 — Missing perform
+A tester writes:
+actions
+    .moveToElement(menu)
+    .click();
+
+but nothing happens.
+Why?
+Correct the code.
+Also explain the purpose of:
+perform()
+	 */
+	
+	public void ques_25()
+	{
+		/*
+		 * actions
+    .moveToElement(menu)
+    .click();
+    
+    here nothing happens because browser interaction only start when perform() method is used.
+    
+    it should be 
+    actions
+    .moveToElement(menu)
+    .click().perform();
+    
+    perform() method executes the browser interaction
+    
+    perform() executes the configured interaction sequence by sending the relevant interaction commands to the browser.
+
+Also, perform() is not limited to mouse actions. It can execute keyboard actions and combinations of mouse and keyboard actions as well.
+
+    
+    
+		 */
+		
+		
+		
+		
+		/*
+		 * Q26 — One perform vs multiple performs
+Compare:
+actions.moveToElement(menu).perform();
+actions.click(menu).perform();
+actions.sendKeys("Employee").perform();
+
+with:
+actions
+    .moveToElement(menu)
+    .click()
+    .sendKeys("Employee")
+    .perform();
+
+Answer:
+- Which creates a chained interaction?
+- What role does the final perform() play?
+- In what situations might separate perform() calls still be useful?
+		 */
+	}
+	
+	public void ques_26()
+	{
+		/*
+		 * 1. this 
+		 * actions
+    .moveToElement(menu)
+    .click()
+    .sendKeys("Employee")
+    .perform();
+    
+    creates chained interaction
+    
+    2. perform()method execute the browser interaction
+    
+    More precisely, it executes the configured sequence of actions.
+
+Without the final perform(), the sequence is not executed.
+
+
+    
+    3. Separate perform() calls are useful when you want to execute interactions in distinct stages, particularly when you need to inspect the result of one interaction before deciding what to do next.
+
+For example:
+
+// Step 1: Hover over the menu
+actions.moveToElement(menu).perform();
+
+// Step 2: Check or locate the submenu
+WebElement submenu = driver.findElement(By.id("submenu"));
+
+// Step 3: Click the submenu
+actions.click(submenu).perform();
+
+Here, the hover executes first. You then locate the submenu and execute the click separately.
+
+This is useful when:
+
+An interaction reveals new elements that you need to locate.
+
+You need to verify a UI state between interactions.
+
+The next action depends on the result of the previous action.
+
+You want to separate complex interactions for debugging.
+
+One important distinction: multiple perform() calls do not automatically make the code better or worse.
+ Use one chained sequence when the actions form a straightforward sequence; 
+ use separate calls when you need distinct execution stages.
+		 */
+		
+	}
+	
+	
+	//Final 5 Combination Challenges
+	
+	/*
+	 * Q27 — Hover + submenu + click + keyboard
+Application flow:
+Employees
+    ↓ hover
+Manage
+    ↓ hover
+Search Employee
+
+After clicking Search Employee, an input appears.
+Write Selenium code to:
+1. Hover over Employees
+2. Hover over Manage
+3. Click Search Employee
+4. Click the search field
+5. Type Karan
+6. Press ENTER
+Use Actions extensively and minimize unnecessary perform() calls.
+	 */
+	
+	public void ques_27()
+	{
+
+		WebElement emp = driver.findElement(By.id("employee"));
+
+		WebElement man = driver.findElement(By.id("Manage"));
+		
+
+		WebElement Search = driver.findElement(By.id("search_employee"));
+		WebElement Searchfield = driver.findElement(By.id("search_employee_field"));
+
+		
+		Actions action = new Actions(driver);
+		
+		action.moveToElement(emp).moveToElement(man).click(Search).click(Searchfield).sendKeys("Karan").keyDown(Keys.ENTER).keyUp(Keys.ENTER).release().perform();
+	}
+	
+	/*
+	 * Q28 — CTRL select + drag and drop
+Three tasks exist:
+<div id="task1">Task 1</div>
+<div id="task2">Task 2</div>
+<div id="task3">Task 3</div>
+
+<div id="completed">Completed</div>
+
+The application allows multiple task selection using CTRL.
+Requirement:
+1. Hold CTRL
+2. Select Task 1
+3. Select Task 3
+4. Release CTRL
+5. Drag the selected tasks to Completed
+Write the Actions logic.
+	 */
+	
+	public void ques_28() {
+		WebElement t1 = driver.findElement(By.id("task1"));
+		
+
+		WebElement t3 = driver.findElement(By.id("task3"));
+		
+		WebElement comp = driver.findElement(By.id("completed"));
+		
+		Actions action = new Actions(driver);
+		
+		action.keyDown(Keys.CONTROL).moveToElement(t1).click().moveToElement(t3).click().keyUp(Keys.CONTROL).clickAndHold().moveToElement(comp).release().perform();
+
+	}
+	
+	/*
+	 * Q29 — Context click + dynamic menu + hover
+Right-clicking an employee opens:
+Actions
+    →
+    Edit
+    Deactivate
+    More
+        →
+        View History
+
+Write Selenium code to:
+1. Right-click employee Karan
+2. Wait for the context menu
+3. Hover over More
+4. Wait for View History
+5. Click View History
+Concepts required:
+contextClick()
+moveToElement()
+click()
+perform()
+Explicit wait
+	 */
+	
+	public void ques_29()
 	{
 		
 	}
