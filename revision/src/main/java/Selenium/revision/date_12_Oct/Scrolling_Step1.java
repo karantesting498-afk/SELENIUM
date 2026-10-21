@@ -18,11 +18,11 @@ Common scenarios:
 	
 	/*
 	 * 2. Different ways to scroll
-Method	Best use case
-JavaScriptExecutor	Scroll to an element, page position, or specific coordinates
-Actions class	Wheel-based scrolling and user-like interactions
-Keyboard keys	Scroll using PAGE_DOWN, HOME, END, or arrow keys
-WebElement scrolling	Scroll within a particular element/container
+Method										Best use case
+JavaScriptExecutor							Scroll to an element, page position, or specific coordinates
+Actions class								Wheel-based scrolling and user-like interactions
+Keyboard keys								Scroll using PAGE_DOWN, HOME, END, or arrow keys
+WebElement scrolling						Scroll within a particular element/container
 	 */
 	
 	/*

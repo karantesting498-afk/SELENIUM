@@ -42,7 +42,7 @@ public class Calendar_Step2 {
 	 * target date that is earlier than the currently displayed month.
 	 */
 
-	public void ques_01() {
+	public void WW() {
 		WebElement calendar = driver.findElement(By.id("startDate"));
 		Scanner sc = new Scanner(System.in);
 
