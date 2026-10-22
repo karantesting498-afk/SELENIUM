@@ -1,5 +1,5 @@
 // this class contain knowledge regarding the broken link handling
-package Selenoum.revision.date_17_Oct;
+package Selenium.revision.date_17_Oct;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;

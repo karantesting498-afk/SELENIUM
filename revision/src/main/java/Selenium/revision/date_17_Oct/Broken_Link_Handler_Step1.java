@@ -1,5 +1,5 @@
 // this class contain knowledge regarding broken link handler
-package Selenoum.revision.date_17_Oct;
+package Selenium.revision.date_17_Oct;
 
 public class Broken_Link_Handler_Step1 {
 	
