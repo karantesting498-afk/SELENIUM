@@ -4,11 +4,13 @@ package Selenium.revision.date_20_Oct;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.openqa.selenium.WebDriver;
@@ -654,6 +656,229 @@ Incorrect. It will not be printed. The System.out.println() statement is inside 
  */
 			
 		
+	}
+	
+	
+	
+	//Section 4: filter(), map(), distinct(), sorted(), limit() and skip()
+	
+	
+	/*
+	 * Q10. Combine Multiple Stream Operations
+Given:
+List<Integer> numbers = Arrays.asList(
+    12, 5, 8, 12, 20, 7, 8, 25, 30, 5
+);
+
+Write a stream pipeline that:
+1. Removes duplicate numbers.
+2. Keeps numbers greater than 7.
+3. Sorts the numbers in descending order.
+4. Skips the first two numbers.
+5. Takes the next two numbers.
+6. Collects the result into a list.
+Additional questions:
+- What is the final list?
+- What would happen if limit(2) were applied before sorting?
+- Does distinct() automatically sort the numbers?
+	 */
+	
+	public void ques_10()
+	{
+		/*
+		 * 7. nums2 is the final list
+		 * 2. then sort will only work for starting 2 values
+		 * 3. no distinct only discard the duplicate value
+		 */
+		List<Integer> numbers = Arrays.asList(12, 5, 8, 12, 20, 7, 8, 25, 30, 5);
+		
+		//Task1
+		numbers.stream().distinct().forEach(n-> System.out.println(n));
+		
+		//Task2
+		
+		numbers.stream().filter(n-> n>7).forEach(System.out::println);
+		
+		//Task3
+		numbers.stream().sorted(Comparator.reverseOrder()).forEach(System.out::println);
+		
+		//Task4
+		numbers.stream().skip(2).forEach(n-> System.out.println(n));
+
+		//Task5 and task 6
+		List<Integer> nums = numbers.stream().skip(2).limit(2).collect(Collectors.toList());
+		
+		System.out.println(nums);
+		
+		
+		List<Integer> nums2 = numbers.stream().distinct().filter(n-> n>7).sorted(Comparator.reverseOrder()).skip(2).limit(2).collect(Collectors.toList());
+		
+		System.out.println(nums2);
+
+	}
+	
+	
+	/*
+	 * Q11. Transform Strings Using map()
+Given:
+List<String> names = Arrays.asList(
+    "karan", "NEHA", "aman", "sanket"
+);
+
+Write a stream pipeline that:
+1. Converts all names to lowercase.
+2. Converts the first character of each name to uppercase.
+3. Sorts the names alphabetically.
+4. Collects the result into a list.
+Additional questions:
+- Why is map() suitable for transforming each element?
+- Does map() modify the original list?
+- What happens if a mapping function returns null?
+	 */
+	
+	public void ques_11()
+	{
+		/*
+		 * 5. Becuase map is an intermediate function and after execution it return the stream.
+		 * 
+		 * Q1. Why is map() suitable for transforming each element?
+
+Your answer is partially correct. 
+Saying that map() is an intermediate operation that returns a stream explains its classification,
+ but not why it is suitable for transformation.
+
+Correct explanation: map() applies a mapping function to each element of a 
+stream and produces a new stream containing the transformed elements.
+
+For example:
+
+names.stream()
+     .map(s -> s.toLowerCase())
+
+Each name is converted to lowercase, and the resulting stream contains the transformed strings.
+
+
+		 * 
+		 * 6. No, map does not modify original list. It only make changes in the stream.
+		 * 
+		 *  7. NullPointerException Exception will be displayed
+		 *  
+		 *  Q3. What happens if a mapping function returns null?
+
+Your answer, "Exception will be displayed," is not always correct.
+
+Consider:
+
+List<String> result = names.stream()
+    .map(s -> (String) null)
+    .collect(Collectors.toList());
+
+This can produce a list containing four null elements:
+
+[null, null, null, null]
+
+However, if you subsequently execute:
+
+.map(s -> s.toUpperCase())
+
+a NullPointerException occurs because s is null.
+
+Key rule: map() can produce null elements. An exception occurs only if a later operation or terminal operation cannot handle those nulls.
+ Some downstream operations, such as sorted() with its natural ordering, can also fail when they encounter null elements.
+		 */
+		List<String> names = Arrays.asList(
+			    "karan", "NEHA", "aman", "sanket"
+			);
+		
+		 List<String> result = names.stream().map(s->s.toLowerCase()).map(s-> s.substring(0, 1).toUpperCase() + s.substring(1)).sorted().collect(Collectors.toList());
+		System.out.println(result);
+	}
+	
+	
+	/*
+	 * Q12. Filter Email-Like Strings
+Given:
+List<String> emails = Arrays.asList(
+    "karan@example.com",
+    "neha@gmail.com",
+    "invalid-email",
+    "",
+    null,
+    "aman@example.com",
+    "test@"
+);
+
+Write a stream pipeline that:
+1. Removes null and empty values.
+2. Keeps strings containing @.
+3. Keeps strings ending in .com.
+4. Converts the results to lowercase.
+5. Collects the results into a list.
+Additional questions:
+- Why should null handling happen before calling string methods?
+- Does checking for @ and .com guarantee that an email address is valid?
+	 */
+	
+	public void ques_12()
+	{
+		/*
+		 * 6. Because if data is null and we are further processing it in the stream then it will give nullPointerException
+		 * 
+		 * 7. No, because there might be multiple @ or string might be like .com , @.com, a.com.
+		 * 
+		 */
+		List<String> emails = Arrays.asList(
+			    "karan@example.com",
+			    "neha@gmail.com",
+			    "invalid-email",
+			    "",
+			    null,
+			    "aman@example.com",
+			    "test@"
+			);
+		
+		Predicate<String> nullCheck = s-> {
+			if(s == null|| s.isEmpty())
+			{
+				return false;
+			}
+			else if(!s.contains("@") || !s.endsWith(".com"))
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+			
+		};
+		
+		List<String> result =emails.stream().filter(nullCheck).map(s->s.toLowerCase()).collect(Collectors.toList());
+		System.out.println(result);
+	}
+	
+	//Section 5: Match and Find Operations
+	
+	
+	/*
+	 * Q13. anyMatch(), allMatch() and noneMatch()
+Given:
+List<Integer> marks = Arrays.asList(
+    45, 60, 75, 80, 90
+);
+
+Write code to determine:
+1. Whether at least one student scored more than 85.
+2. Whether every student passed, assuming the passing mark is 40.
+3. Whether no student scored below 35.
+Additional questions:
+- Explain the difference between the three methods.
+- What do these methods return when used on an empty stream?
+	 */
+	
+	
+	public void ques_13()
+	{
 		
 	}
 	
