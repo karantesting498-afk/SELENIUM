@@ -153,6 +153,7 @@ Output:
 30
 
 Now implement the same interface using a lambda:
+
 Calculator calculator = (a, b) -> a + b;
 
 System.out.println(calculator.add(10, 20));
@@ -160,6 +161,97 @@ System.out.println(calculator.add(10, 20));
 Output:
 
 30
+
+
+1. Functional Interface
+A functional interface is an interface that has exactly one abstract method.
+@FunctionalInterface
+interface NumberValidator {
+    boolean validate(int number);
+}
+
+
+- @FunctionalInterface ensures that the interface follows the single abstract method rule.
+- boolean is the return type.
+- validate is the method name.
+- int number is the input parameter.
+2. Lambda Expression
+Instead of creating a separate class to implement the interface, we can use a lambda expression.
+NumberValidator validator =
+        number -> number > 0 && number % 2 == 0;
+
+
+Component	Meaning
+NumberValidator	Target functional-interface type
+validator	Reference variable
+number	Input parameter
+->	Separates parameters from the lambda body
+number > 0 && number % 2 == 0	Validation logic returning a boolean
+Java infers the parameter type from the interface method, so writing int number explicitly is unnecessary.
+3. How the lambda executes
+System.out.println(validator.validate(10)); // true
+System.out.println(validator.validate(7));  // false
+System.out.println(validator.validate(0));  // false
+
+
+Execution flow:
+1. validate(10) passes 10 to the lambda parameter number.
+2. Java evaluates the expression.
+3. The expression returns true or false.
+4. println() displays the result.
+The lambda implements validate() because it is the interface's only abstract method.
+4. What if the interface has multiple methods?
+interface NumberValidator {
+    boolean isEven(int number);
+    boolean isPositive(int number);
+}
+
+
+This will not work:
+NumberValidator validator = number -> number > 0;
+
+
+Both methods are abstract. Java cannot use one lambda to implement both methods.
+
+Solutions:
+- Use a normal class that implements both methods.
+- Create separate functional interfaces if you want to implement each operation using a lambda.
+5. What about default methods?
+@FunctionalInterface
+interface NumberValidator {
+
+    boolean validate(int number);
+
+    default void display() {
+        System.out.println("Validating number");
+    }
+}
+
+
+This is valid because only validate() is abstract. A default method already has an implementation, so it does not violate the functional-interface rule.
+6. Important rules to remember
+- A functional interface has exactly one abstract method.
+- A lambda expression supplies the implementation of that method.
+- Java determines the lambda's target type from the context.
+- The method's parameter type determines the lambda parameter type.
+- A lambda can implement an interface with additional default methods.
+- A lambda expression with an expression body can return its result implicitly.
+Remember this relationship:
+Interface
+
+Declares what operation is required
+
+Lambda expression
+
+Provides the implementation
+
+Method call
+
+Executes the implementation with an input
+
+
+
+
 
 The lambda provides the implementation of the interface's single abstract method.
 
