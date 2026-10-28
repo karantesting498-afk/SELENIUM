@@ -599,6 +599,9 @@ String result = text.substring(0, 4);
 System.out.println(result); // Output: Java
 
 
+
+
+
 =======================================================================
 	 */
 	

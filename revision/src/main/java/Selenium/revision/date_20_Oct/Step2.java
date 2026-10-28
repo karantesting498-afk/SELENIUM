@@ -13,7 +13,9 @@ import java.util.function.Supplier;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class Step2 {
 	WebDriver driver;
@@ -881,5 +883,96 @@ Additional questions:
 	{
 		
 	}
+	
+	
+	
+	
+	/*
+	 * Q23. Normalize and Remove Duplicates
+Given:
+List<String> names = Arrays.asList(
+    "karan", "NEHA", "aman", "Sanket", "neha", "Vishal"
+);
+
+Tasks:
+1. Create a Function<String, String> that converts a name to lowercase.
+2. Use map() to normalize the names.
+3. Remove duplicates.
+4. Sort the names alphabetically.
+5. Collect the results into a list.
+6. Explain why normalization before distinct() changes the result.
+	 */
+	
+	public void ques_23()
+	{
+		/*
+		 * Normalization, removes trailing and leading spaces.
+		 * If we use distinct before normalize
+		 * then it will consider
+		 * 
+		 *   Delhi
+		 *   and
+		 *         Delhi    
+		 *         as different values.
+		 */
+		List<String> names = Arrays.asList(
+			    "karan", "NEHA", "aman", "Sanket", "neha", "Vishal"
+			);
+		
+		Function<String, String> result = n-> n.toLowerCase();
+		
+		names.stream().map(n->n.trim()).map(result).distinct().sorted().collect(Collectors.toList());
+		
+		
+	}
+	
+	/*
+	 * Q24. Validate Employee Status Labels
+List<WebElement> statuses =
+    driver.findElements(By.cssSelector(".employee-status"));
+
+Tasks:
+1. Extract the text of each status label.
+2. Ignore null or blank text.
+3. Check whether at least one status is "Active", ignoring case.
+4. Collect distinct status values into a list.
+5. Explain how you would handle StaleElementReferenceException if an element becomes stale during processing.
+	 */
+	
+	public void ques_24()
+	{
+		List<WebElement> statuses =
+				driver.findElements(By.cssSelector(".employee-status"));
+
+		//Task 1,2,3,
+		statuses.stream().map(s->s.getText()).filter(s->{
+			if(s==null || s.isEmpty() || s.isBlank())
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}).anyMatch(s->s.equalsIgnoreCase("Active"));
+		
+		
+		//Task 4
+		List<String> values = statuses.stream().map(s->s.getText()).distinct().collect(Collectors.toList());
+		
+		/*
+		 * Task5 - 
+		 * This exception occurs when a WebElement reference no longer points to a valid element in the current DOM, 
+		 * often because the page refreshed, the UI re-rendered, or the element was replaced.
+
+A common approach is to locate the elements again and retry the operation, preferably with an explicit wait if
+ the UI updates asynchronously.
+		 */
+	}
+
+	
+	/*
+	 * 
+	 */
 	
 }
