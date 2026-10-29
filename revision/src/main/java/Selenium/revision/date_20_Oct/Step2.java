@@ -6,6 +6,9 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -13,7 +16,9 @@ import java.util.function.Supplier;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class Step2 {
 	WebDriver driver;
@@ -879,7 +884,626 @@ Additional questions:
 	
 	public void ques_13()
 	{
+		/*
+		 * 4. anyMatch - return true if any of the value satisfy condition.
+		 * all match = return true if all value satisfy condition
+		 * noneMatch = return true if none value satisfy condition
+		 * 
+		 * 5. In an empty string, these method return null
+		 * 
+		 * What happens with an empty stream?
+Your answer says these methods return null. That is incorrect. They return boolean values, never null.
+Method	Empty stream result	Reason
+
+anyMatch()	false	No element exists that can satisfy the condition.
+allMatch()	true	There is no element that violates the condition.
+noneMatch()	true	There is no element that satisfies the condition.
+
+
+
+
+
+		 */
+		List<Integer> marks = Arrays.asList(
+			    45, 60, 75, 80, 90
+			);
+		
+		//Task1
+		System.out.println(marks.stream().anyMatch(n-> n>85));
+		
+		//Task2
+		System.out.println(marks.stream().allMatch(n-> n>40));
+		
+		//task3
+		System.out.println(marks.stream().noneMatch(n-> n<35));
+	}
+	
+	/*
+	 * Q14. Finding Elements — Difficult
+Given:
+List<String> browsers = Arrays.asList(
+    "Firefox", "Chrome", "Edge", "Chrome", "Safari"
+);
+
+Tasks:
+1. Find the first browser whose name starts with "C".
+2. Find any browser whose name starts with "C".
+3. Handle the case where no matching browser exists.
+4. Explain why findFirst() and findAny() return an Optional.
+5. Is findAny() guaranteed to return the first matching element?
+	 */
+	
+	public void ques_14()
+	{
+		/*
+		 * 4. findFirst() and findAny() return optional because the result might or might not exist after the condition validation
+		 * 
+		 * 5. Yes, it will return the first matching value
+		 * 
+		 * No. This is the important correction.
+Method	Guarantee
+findFirst()	Returns the first matching element according to the stream's encounter order, if one exists.
+findAny()	Returns some matching element, without guaranteeing it is the first.
+
+For your list:
+Arrays.asList("Firefox", "Chrome", "Edge", "Chrome", "Safari")
+
+
+Both methods may return "Chrome" because it is the first matching element and also a valid matching element for findAny().
+
+However, findAny() is allowed to return another matching element, such as the second "Chrome". This matters especially for parallel streams, where findAny() can allow more implementation flexibility.
+
+Interview tip: Use findFirst() when encounter order matters. Use findAny() when any matching element is sufficient.
+		 */
+		List<String> browsers = Arrays.asList(
+			    "Firefox", "Chrome", "Edge", "Chrome", "Safari"
+			);
+		
+		
+		//Task 1
+		System.out.println(browsers.stream().filter(s-> s.subSequence(0, 1).equals("C")).findFirst());
+		
+		//Task 2
+		Optional<String> result =browsers.stream().filter(s-> s.substring(0,1).equals("C")).findAny();
+		
+		//Task 3
+		if(result.isPresent())
+		{
+			System.out.println(result);
+		}
+		else
+		{
+			System.out.println("No browser starts with C present in the list");
+		}
 		
 	}
 	
+	/*
+	 * Q15. Short-Circuiting — Difficult
+Consider:
+List<Integer> numbers = Arrays.asList(3, 5, 8, 11, 14, 17);
+
+boolean result = numbers.stream()
+        .peek(n -> System.out.println("Checking: " + n))
+        .anyMatch(n -> n % 2 == 0);
+
+System.out.println(result);
+
+Tasks:
+1. Write the complete output.
+2. Explain why the program might not print "Checking: 11".
+3. What is short-circuiting in the Stream API?
+4. Name two other stream operations that can short-circuit.
+	 */
+	public void ques_15()
+	{
+		List<Integer> numbers = Arrays.asList(3, 5, 8, 11, 14, 17);
+
+		boolean result = numbers.stream()
+		        .peek(n -> System.out.println("Checking: " + n))
+		        .anyMatch(n -> n % 2 == 0);
+
+		System.out.println(result);
+		
+		/*
+		 * 1. Output:
+		 * Checking: 3
+		 * Checking: 5
+		 * Checking: 8
+		 * true
+		 * 
+		 * 
+		 * 2. Because anyMatch will return true when condition for even is satisfied at 8 value.
+		 * 
+		 * 3. Don't know
+		 *4. don't know
+		 *
+		 *
+		 *
+		 *3. What is short-circuiting?
+Short-circuiting means an operation can stop processing elements as soon as it has enough information to determine its result.
+
+In your example, anyMatch() only needs to find one matching element. Once it finds 8, it already knows the answer is true, so it doesn't need to examine the remaining elements.
+
+The peek() operation prints only the elements that actually reach it during execution.
+4. Two other short-circuiting operations
+- findFirst() — stops when it finds the first element, if one exists.
+- findAny() — can stop when it finds any element, if one exists.
+Other examples include allMatch() and noneMatch(), which can stop as soon as they find a counterexample to their respective conditions.
+
+Important distinction: peek() is an intermediate operation; anyMatch() is a short-circuiting terminal operation. The terminal operation triggers execution and determines when processing can stop.
+		 */
+	}
+	
+	
+	//Section 6: collect(), Collectors and reduce()
+	
+	/*
+	 * Q16. Collecting Data — Difficult
+Given:
+List<String> names = Arrays.asList(
+    "Karan", "Neha", "Aman", "Karan", "Neha", "Vishal"
+);
+
+Use streams to:
+1. Collect the distinct names into a list.
+2. Collect the distinct names into a set.
+3. Convert the names to uppercase and collect them into a list.
+4. Explain the difference between collecting into a List and a Set.
+5. Is the order guaranteed to be the same when collecting into a Set?
+	 * 
+	 */
+	
+	public void ques_16()
+	{
+		List<String> names = Arrays.asList(
+			    "Karan", "Neha", "Aman", "Karan", "Neha", "Vishal"
+			);
+		
+		//task1
+		List<String> nameList = names.stream().distinct().collect(Collectors.toList());
+		
+		//Task2
+		Set<String> nameSet = names.stream().distinct().collect(Collectors.toSet());
+		
+		//task 3
+		List<String> upperName = names.stream().map(n-> n.toUpperCase()).collect(Collectors.toList());
+		
+		/*
+		 * 4. Collection to list, saves the updated value in a list
+		 * while collection to set , saves the updated value in a set.
+		 * 
+		 * 3. Difference between collecting into a List and a Set
+Feature					List																Set
+Duplicates				Allowed																Not allowed
+Order					Preserves insertion/encounter order for this collection				Depends on the Set implementation
+Access by index			Supported															Not supported
+Example collector		Collectors.toList()													Collectors.toSet()
+
+Your statement that a list or set saves the updated values is broadly correct,
+ but collecting does not necessarily update the original collection. It produces a result collection
+		 * 
+		 * 5. 
+		 * No, not with Collectors.toSet().
+
+For example, your stream's encounter order is:
+Karan, Neha, Aman, Karan, Neha, Vishal
+
+
+After collecting into a set, you will have the four distinct names, but you cannot rely on their iteration order being:
+Karan, Neha, Aman, Vishal
+
+
+A set implementation may display them in a different order.
+
+If you need uniqueness and encounter order, use a LinkedHashSet:
+Set<String> nameSet = names.stream()
+    .collect(Collectors.toCollection(LinkedHashSet::new));
+
+
+This preserves the first-occurrence order: Karan, Neha, Aman, Vishal.
+
+One final correction: your comment about values not satisfying a condition applies to filtering, such as .filter(...). 
+Collecting into a List or Set does not itself remove elements based on a condition; distinct() 
+removes duplicates, and a Set also enforces uniqueness.
+		 */
+		
+	}
+	
+	
+	/*
+	 * Q17. Grouping and Counting — Difficult
+Given:
+List<String> employees = Arrays.asList(
+    "Karan", "Neha", "Aman", "Kabir", "Nisha", "Ankit"
+);
+
+Use streams and collectors to:
+1. Group employees by the first character of their names.
+2. Count how many employees belong to each first-character group.
+3. Explain the role of Collectors.groupingBy().
+4. Explain the difference between groupingBy() and partitioningBy().
+Challenge: What would happen if the list contained a null employee name and your grouping function called name.charAt(0)?
+	 */
+	
+	public void ques_17()
+	{
+		List<String> employees = Arrays.asList(
+			    "Karan", "Neha", "Aman", "Kabir", "Nisha", "Ankit"
+			);
+
+		//Task 1
+		
+		Map<String, List<String>> result = employees.stream().collect(Collectors.groupingBy(n->n.substring(0, 1)));
+		
+		//Task 2
+
+		Map<String , Long> result2 = employees.stream().collect(Collectors.groupingBy(n->n.substring(0, 1),Collectors.counting()
+				));
+		System.out.println(result2);
+		/*
+		 * {A=[Aman, Ankit], K=[Karan, Kabir], N=[Neha, Nisha]}
+			{A=2, K=2, N=2}
+		 * 
+		 * 
+		 * 3. GroupingBy , groups the output as the per key value and stores it in a map.
+		 * 
+		 * 4. Don't know
+		 * 
+		 *  Difference between groupingBy() and partitioningBy()
+Feature	groupingBy()	partitioningBy()
+Classification	Can create multiple groups	Always divides elements into two groups
+Key type	Depends on the classification function	Boolean (true or false)
+Typical use	Group employees by department or first letter	Divide numbers into even and odd
+Result	Map<K, List<T>> by default	Map<Boolean, List<T>> by default
+
+Example of partitioningBy():
+Map<Boolean, List<String>> result = employees.stream()
+    .collect(Collectors.partitioningBy(n -> n.startsWith("A")));
+
+
+Possible result:
+{
+    true=[Aman, Ankit],
+    false=[Karan, Neha, Kabir, Nisha]
+}
+
+
+Here, true means the name starts with "A", and false means it does not.
+
+Rule: Use groupingBy() when elements can belong to many different categories.
+ Use partitioningBy() when you want to split elements according to one boolean condition.
+		 * 
+		 * 
+		 * 5. Don't know
+		 * 
+		 * 
+		 * Challenge: What happens if a name is null?
+Suppose the list contains null and your grouping function is:
+n -> n.charAt(0)
+
+
+When Java tries to evaluate n.charAt(0) for the null element, it throws a NullPointerException. The same issue occurs with your n.substring(0, 1) expression.
+
+You can prevent this by filtering out null names first:
+Map<String, Long> counts = employees.stream()
+    .filter(Objects::nonNull)
+    .collect(Collectors.groupingBy(
+        n -> n.substring(0, 1),
+        Collectors.counting()
+    ));
+
+
+This ignores null names and counts only valid employee names. 
+If null names are meaningful in your application, you should instead define explicitly how they should be handled.
+		 */
+	}
+	
+	/*
+	 * Q18. Using reduce() — Difficult
+Given:
+List<Integer> numbers = Arrays.asList(2, 3, 4, 5);
+
+Tasks:
+1. Calculate the sum using reduce().
+2. Calculate the product using reduce().
+3. Explain the purpose of the identity value in reduce().
+4. What is the difference between reduce() and collect()?
+5. What could go wrong if you use an unsuitable identity value?
+	 */
+	
+	
+	public void ques_18()
+	{
+		List<Integer> numbers = Arrays.asList(2, 3, 4, 5);
+
+		//Task 1
+		int sum = numbers.stream().reduce(0, (a,b)-> a+b);
+		
+		System.out.println(sum);
+		
+		//Task 2
+		
+		int product = numbers.stream().reduce(1, (a,b)-> a*b);
+		System.out.println(product);
+		
+		/*
+		 * 3. Indentity value in the reduce represent the initial accumulation.
+		 * It is similar like
+		 * int sum = 0;
+		 * sum = a+b;
+		 * 
+		 * 
+		 * 3. What is the identity value?
+The identity value is the starting value that does not change the result when combined with another value using the relevant operation.
+
+For addition:
+numbers.stream().reduce(0, (a, b) -> a + b);
+
+
+The identity is 0, because:
+- 0 + 2 = 2
+- 0 + 3 = 3
+For multiplication:
+numbers.stream().reduce(1, (a, b) -> a * b);
+
+
+The identity is 1, because:
+- 1 * 2 = 2
+- 1 * 3 = 3
+Your analogy with int sum = 0 is helpful. More precisely, 
+the reduction begins with the identity and combines it with the stream elements to produce the final result.
+		 * 
+		 * 
+		 * 4. reduce is used to calculate the values and return a value
+		 * whereas collect is used convert the stream values in a list or set.
+		 * 
+		 * 4. Difference between reduce() and collect()
+		 * 
+reduce()														collect()
+Combines elements into a single result							Accumulates elements into a result container or another collected result
+Commonly used for sum, product, minimum, or maximum				Commonly used to create a List, Set, Map, or grouped result
+Example: reduce(0, Integer::sum)								Example: collect(Collectors.toList())
+
+Examples:
+// One result: sum
+int sum = numbers.stream()
+    .reduce(0, Integer::sum);
+
+// A collection containing selected elements
+List<Integer> even = numbers.stream()
+    .filter(n -> n % 2 == 0)
+    .collect(Collectors.toList());
+
+
+The key distinction is combining values into a result versus accumulating elements into a result structure. 
+Technically, collect() can also produce a single value, such as a count, so it is not limited to lists and sets.
+		 * 
+		 * 5. 
+		 * It can produce an incorrect answer without throwing any exception.
+
+For example:
+int sum = numbers.stream()
+    .reduce(10, (a, b) -> a + b);
+
+System.out.println(sum); // 24
+
+
+The actual sum is 14, but the result is 24 because the initial value 10 is added to all the elements.
+
+Similarly:
+int product = numbers.stream()
+    .reduce(0, (a, b) -> a * b);
+
+System.out.println(product); // 0
+
+
+The result is 0, because multiplying by zero always produces zero.
+
+Important: An identity must satisfy the identity property for the operation. For parallel reductions, 
+the accumulator must also be associative, and the identity must be compatible with it. 
+Violating these requirements can cause incorrect results, especially with parallel streams.
+		 * 
+		 * 
+		 * 
+		 */
+	}
+	
+	
+	
+	//Section 7: Selenium Automation Scenarios Using Streams and Lambdas
+	
+	
+	/*
+	 * Q19. Validate Dropdown Options — Difficult
+Suppose a dropdown contains these options:
+List<WebElement> options =
+        driver.findElements(By.cssSelector("#country option"));
+
+Tasks:
+1. Use streams and map() to extract all option texts into a List<String>.
+2. Use anyMatch() to verify whether "India" exists.
+3. Use filter() to find all options whose visible text contains "United".
+4. Explain why it is useful to extract text before performing multiple validations.
+	 */
+	
+	public void ques_19()
+	{
+		List<WebElement> options =
+		        driver.findElements(By.cssSelector("#country option"));
+		
+		//Task 1
+		List<String> country = options.stream().map(s->s.getText()).collect(Collectors.toList());
+		
+		//Task 2
+		
+		boolean country2 = options.stream().map(s->s.getText()).anyMatch(s->s.equalsIgnoreCase("India"));
+		
+		//Task 3
+		List<String> country3 = options.stream().map(s->s.getText()).filter(s->s.contains("United")).collect(Collectors.toList());
+		
+		//task4
+		/*
+		 * It is useful to extract text first because options contains list of webelements.
+		 * and if we don't extract text first, then in each verification we will first have  to extract text first and then 
+		 * perform validation.
+		 */
+	}
+	
+	/*
+	 * Q20. Validate a Web Table — Difficult
+Suppose a table contains employee names in the first column:
+List<WebElement> rows =
+        driver.findElements(By.cssSelector("#employeeTable tbody tr"));
+
+Tasks:
+1. Use streams to determine whether an employee named "Karan" exists in the table.
+2. Make the comparison case-insensitive.
+3. Find all employee names beginning with "A".
+4. Handle rows that have no cells or no usable employee name.
+5. Explain why calling getText() repeatedly on live WebElements can be less robust than first extracting the required text.
+	 */
+	
+	public void ques_20()
+	{
+		List<WebElement> rows =
+		        driver.findElements(By.cssSelector("#employeeTable tbody tr"));
+		
+		//task1 and task 2
+		
+		rows.stream().map(row->row.findElement(By.cssSelector("td")).getText().trim()).filter(row->!row.isEmpty()).anyMatch(row->row.equalsIgnoreCase("Karan"));
+		
+		
+		//task 3
+		
+		rows.stream().map(row->row.findElement(By.cssSelector("td")).getText().trim()).filter(row->row.startsWith("A"));
+		
+		Predicate<String> result = s->{
+			if(s==null || s.isEmpty())
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		};
+		
+		//Task 4
+		rows.stream().map(s->s.findElement(By.cssSelector("td")).getText()).filter(result).collect(Collectors.toList());
+		
+		/*
+		 * If we first extract text in a list, then it can reusable and user will not have to again extract text 
+		 * if he wants to use text in multiple streams.
+		 */
+		
+		
+		
+	}
+	
+	
+	/*
+	 * Q21. Validate Buttons — Difficult
+Suppose a page has multiple buttons:
+List<WebElement> buttons = driver.findElements(By.tagName("button"));
+
+Tasks:
+1. Use streams to determine whether at least one displayed button is enabled.
+2. Find the text of all displayed buttons that are enabled.
+3. Filter buttons whose text contains "Save", ignoring case.
+4. Explain the difference between isDisplayed() and isEnabled().
+5. What Selenium exception might occur if a button becomes stale while the stream is processing it?
+Important: Selenium WebDriver interactions should generally remain sequential. 
+Avoid using parallelStream() for browser-element interactions.
+	 */
+	
+	public void ques_21()
+	{
+		List<WebElement> buttons = driver.findElements(By.tagName("button"));
+		
+		//task1
+		buttons.stream().anyMatch(s->s.isDisplayed() && s.isEnabled());
+		
+		//Task 2
+		buttons.stream().filter(s->s.isEnabled() && s.isDisplayed()).forEach(s->System.out.println(s.getText()));
+		
+		//task3
+		
+		List<String> saveButtons = buttons.stream().map(s->s.getText()).filter(s->s.contains("save")).collect(Collectors.toList());
+		
+		//task 4
+		/*
+		 * isDisplayed() checks whether element is displayed on page or not
+		 * isEnabled() checks whether webElement is enabled or not. and can generally accept user interaction.
+		 */
+		
+		/*
+		 * 5. StaleElementReferenceException
+		 */
+		
+	}
+	
+	
+	/*
+	 * Section 8: Combined Lambda + Stream Challenges
+	 * 
+	 * 
+	 * 
+These are the most challenging questions in this set because they combine multiple concepts.
+Q22. Combined Predicate and Stream Pipeline
+Given:
+List<String> usernames = Arrays.asList(
+    "karan", "admin", "test_user", "", "manager", null, "QA"
+);
+
+Tasks:
+1. Create a reusable Predicate<String> that checks whether a username:
+   - Is not null.
+   - Is not empty.
+   - Contains at least five characters.
+2. Use the predicate in a stream pipeline.
+3. Convert valid usernames to uppercase.
+4. Sort them alphabetically.
+5. Collect the result into a list.
+6. Use noneMatch() to determine whether any valid username is shorter than five characters.
+	 */
+	
+	public void ques_22()
+	{
+		List<String> usernames = Arrays.asList(
+			    "karan", "admin", "test_user", "", "manager", null, "QA"
+			);
+		Predicate<String> result = s-> {
+			if(s== null || s.isEmpty())
+			{
+				return false;
+			}
+			else if(s.length() >=5)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		};
+		
+		
+		//task 1 to 5
+		usernames.stream().filter(result).map(s->s.toUpperCase()).sorted().collect(Collectors.toList());
+		
+		//task6
+		
+		usernames.stream().filter(s->{
+			if(s== null || s.isEmpty())
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}).noneMatch(s->s.length()<5);
+		
+	}
 }
