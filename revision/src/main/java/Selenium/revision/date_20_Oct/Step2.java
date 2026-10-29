@@ -1377,9 +1377,11 @@ Tasks:
 		//task 3
 		
 		rows.stream().map(row->row.findElement(By.cssSelector("td")).getText().trim()).filter(row->row.startsWith("A"));
+
+		//Task 4
 		
-		Predicate<String> result = s->{
-			if(s==null || s.isEmpty())
+		rows.stream().map(row->row.findElement(By.cssSelector("td")).getText().trim()).filter(row->{
+			if(row ==null || row.isBlank())
 			{
 				return false;
 			}
@@ -1387,19 +1389,21 @@ Tasks:
 			{
 				return true;
 			}
-		};
-		
-		//Task 4
-		rows.stream().map(s->s.findElement(By.cssSelector("td")).getText()).filter(result).collect(Collectors.toList());
+		}).collect(Collectors.toList());
 		
 		/*
-		 * If we first extract text in a list, then it can reusable and user will not have to again extract text 
-		 * if he wants to use text in multiple streams.
+		 * task 5
+		 * 
+		 * We can extract element texts in a list first.
+		 * And then use text from that list repeatedly.
+		 * 
+		 * Calling getText() again and again leads unnecesary code
 		 */
 		
-		
-		
 	}
+	
+	
+	
 	
 	
 	/*
@@ -1450,6 +1454,8 @@ Avoid using parallelStream() for browser-element interactions.
 	 * 
 	 * 
 These are the most challenging questions in this set because they combine multiple concepts.
+
+
 Q22. Combined Predicate and Stream Pipeline
 Given:
 List<String> usernames = Arrays.asList(
@@ -1473,6 +1479,8 @@ Tasks:
 		List<String> usernames = Arrays.asList(
 			    "karan", "admin", "test_user", "", "manager", null, "QA"
 			);
+		
+		
 		Predicate<String> result = s-> {
 			if(s== null || s.isEmpty())
 			{
@@ -1504,6 +1512,93 @@ Tasks:
 				return true;
 			}
 		}).noneMatch(s->s.length()<5);
+				
+	}
+	
+
+	/*
+	 * Q23. Normalize and Remove Duplicates
+Given:
+List<String> names = Arrays.asList(
+    "karan", "NEHA", "aman", "Sanket", "neha", "Vishal"
+);
+
+Tasks:
+1. Create a Function<String, String> that converts a name to lowercase.
+2. Use map() to normalize the names.
+3. Remove duplicates.
+4. Sort the names alphabetically.
+5. Collect the results into a list.
+6. Explain why normalization before distinct() changes the result.
+	 */
+	
+	public void ques_23()
+	{
+		/*
+		 * Normalization, removes trailing and leading spaces.
+		 * If we use distinct before normalize
+		 * then it will consider
+		 * 
+		 *   Delhi
+		 *   and
+		 *         Delhi    
+		 *         as different values.
+		 */
+		List<String> names = Arrays.asList(
+			    "karan", "NEHA", "aman", "Sanket", "neha", "Vishal"
+			);
+		
+		Function<String, String> result = n-> n.toLowerCase();
+		
+		names.stream().map(n->n.trim()).map(result).distinct().sorted().collect(Collectors.toList());
+		
 		
 	}
+	
+	/*
+	 * Q24. Validate Employee Status Labels
+List<WebElement> statuses =
+    driver.findElements(By.cssSelector(".employee-status"));
+
+Tasks:
+1. Extract the text of each status label.
+2. Ignore null or blank text.
+3. Check whether at least one status is "Active", ignoring case.
+4. Collect distinct status values into a list.
+5. Explain how you would handle StaleElementReferenceException if an element becomes stale during processing.
+	 */
+	
+	public void ques_24()
+	{
+		List<WebElement> statuses =
+				driver.findElements(By.cssSelector(".employee-status"));
+
+		//Task 1,2,3,
+		statuses.stream().map(s->s.getText()).filter(s->{
+			if(s==null || s.isEmpty() || s.isBlank())
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}).filter(s->s.equalsIgnoreCase("Active"));
+		
+		//Task 4
+		
+		statuses.stream().map(s->s.getText()).distinct().collect(Collectors.toList());
+		
+		/*
+		 * Task 5
+		 * 
+		 * We can handle StaleElementReferenceException by again searching for the element.
+		 */
+		
+
+		
+		
+		
+	}
+	
 }
