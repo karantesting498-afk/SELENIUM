@@ -638,10 +638,65 @@ The 10 seconds represents the maximum timeout, not a mandatory delay.
 
 
 
+============================================================================================================================
 
 
 
+	 */
+	
+	/*
+	 * but implicit wait throw NoSuchElementException but explicit wait throw timeout?
+Yes, exactly! You have understood the main difference. There is one important detail to remember.
 
+Implicit wait vs. Explicit wait: Exceptions
+Situation
+
+Exception thrown
+
+Implicit wait: findElement() cannot find the element within the timeout
+
+NoSuchElementException
+
+Explicit wait: until() condition never becomes true within the timeout
+
+TimeoutException
+
+1. Implicit wait example
+driver.manage().timeouts()
+      .implicitlyWait(Duration.ofSeconds(5));
+
+WebElement element = driver.findElement(By.id("username"));
+
+If the element does not exist within five seconds, Selenium throws:
+
+NoSuchElementException
+
+2. Explicit wait example
+WebDriverWait wait = new WebDriverWait(
+    driver, Duration.ofSeconds(5));
+
+WebElement element = wait.until(
+    ExpectedConditions.visibilityOfElementLocated(
+        By.id("username")
+    )
+);
+
+If the element never becomes visible within five seconds, Selenium throws:
+
+TimeoutException
+
+This can happen even if the element exists in the DOM but remains hidden.
+
+One important exception to remember
+An explicit wait does not always throw TimeoutException. If an exception occurs inside the condition and is not ignored or handled, that exception may propagate instead.
+
+For example, a direct call to findElement() outside an explicit wait can throw NoSuchElementException.
+
+Interview shortcut:
+
+findElement() fails to locate an element → NoSuchElementException.
+
+WebDriverWait.until() cannot satisfy its condition in time → TimeoutException.
 	 */
 
 }
