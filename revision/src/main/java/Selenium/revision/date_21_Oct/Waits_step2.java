@@ -377,6 +377,159 @@ Answer the following:
 	 */
 	public void ques_08()
 	{
-		
+		/*
+		 * 1. lambda return null during processing is because during the polling status might not be available on DOM
+		 * 
+		 * 1. Why does the lambda return null while the status is "Processing"?
+
+Your answer is partially correct.
+
+You wrote that the status might not be available in the DOM during polling. However, 
+in the given scenario, the status element initially exists and displays "Processing".
+
+The lambda returns null because this condition is false:
+
+if (element.getText().equals("Completed"))
+
+When getText() returns "Processing", the lambda reaches return null.
+
+Key point: Returning null tells wait.until() that the condition has not been satisfied, so FluentWait should poll again.
+
+
+
+		 * 
+		 * 2. Status with text = Completed will be returned
+		 * 
+		 * 
+		 * 3. Because during pooling time, lambda value might return exception NoSuchElementException due to unavailablity of the
+		 * Status element. That's why we have added the custom ignore(NoSuchElement.class) to ignore this exception during 
+		 * polling time.
+		 * 
+		 * 3. Why is this a custom condition rather than a simple presence check?
+
+Your answer needs correction.
+
+The main reason is that the element's presence does not guarantee that its text has changed to "Completed".
+
+A presence check verifies that the element exists in the DOM.
+
+This custom condition verifies that the element exists and its text equals "Completed".
+
+The .ignoring(NoSuchElementException.class) configuration handles the possibility that the element is temporarily absent. 
+
+It is not what makes the condition custom.
+
+
+
+
+		 * 
+		 * 4. Then timeoutException will be thrown.
+		 * 5. No it might encounter ELmentNotClickable etc.
+		 * 
+		 * 
+		 * 5. Is NoSuchElementException the only exception this wait can encounter?
+
+Your answer is correct in principle, but your example needs refinement.
+
+FluentWait can encounter other exceptions, including:
+
+StaleElementReferenceException — the element becomes detached from the DOM or is no longer valid.
+
+WebDriverException — a broader WebDriver error, depending on the circumstances.
+
+ElementNotInteractableException and ElementClickInterceptedException are more commonly associated with interaction operations.
+ They are not expected from this particular lambda, which only locates the element and reads its text.
+
+Because only NoSuchElementException is explicitly ignored, another exception will generally propagate immediately rather than being retried.
+		 */
+		FluentWait<WebDriver> wait = new FluentWait<>(driver)
+		        .withTimeout(Duration.ofSeconds(15))
+		        .pollingEvery(Duration.ofSeconds(1))
+		        .ignoring(NoSuchElementException.class);
+
+		WebElement status = wait.until(d -> {
+		    WebElement element = d.findElement(By.id("status"));
+
+		    if (element.getText().equals("Completed")) {
+		        return element;
+		    }
+
+		    return null;
+		});
+	}
+	
+	/*
+	 * Q9. Debug a Fluent Wait
+A tester writes the following code:
+FluentWait<WebDriver> wait = new FluentWait<>(driver)
+        .withTimeout(Duration.ofSeconds(10))
+        .pollingEvery(Duration.ofSeconds(1))
+        .ignoring(NoSuchElementException.class);
+
+WebElement message = wait.until(d -> {
+    WebElement element = d.findElement(By.id("message"));
+
+    if (element.getText().equals("Success")) {
+        return element;
+    }
+
+    return null;
+});
+
+System.out.println(message.getText());
+
+The application displays "Processing" initially but changes to "Success" after five seconds.
+
+Answer the following:
+1. Will the wait continue while the message displays "Processing"?
+2. Why does returning null matter?
+3. What happens if the message changes to "Success" before the ten-second timeout?
+4. Identify one potential problem if the application replaces the message element in the DOM while the wait is running.
+5. How could you make the wait more robust against an element being replaced?
+	 */
+	public void ques_09()
+	{
+		/*
+		 * 1. yes, because if element text not equals success, then it will return null.
+		 * 2. Because it tells fluent wait , to continue polling to get the correct desired message.
+		 * 3. Then it will print the succcess message and wait time will end naturally.
+		 * 
+		 * When the text becomes "Success", the lambda returns the element, and the wait stops. 
+		 * The returned element is assigned to message, and this statement prints its text:
+
+System.out.println(message.getText());
+
+Output:
+
+Success
+
+The wait does not necessarily consume all ten seconds; it finishes as soon as a polling attempt satisfies the condition.
+
+
+		 * 4. We can get staleElementReferenceException.
+		 * 5. By adding ignoring satelElementReferenceException
+		 * 
+		 * FluentWait<WebDriver> wait = new FluentWait<>(driver)
+    .withTimeout(Duration.ofSeconds(10))
+    .pollingEvery(Duration.ofSeconds(1))
+    .ignoring(NoSuchElementException.class)
+    .ignoring(StaleElementReferenceException.class);
+		 */
+		FluentWait<WebDriver> wait = new FluentWait<>(driver)
+		        .withTimeout(Duration.ofSeconds(10))
+		        .pollingEvery(Duration.ofSeconds(1))
+		        .ignoring(NoSuchElementException.class);
+
+		WebElement message = wait.until(d -> {
+		    WebElement element = d.findElement(By.id("message"));
+
+		    if (element.getText().equals("Success")) {
+		        return element;
+		    }
+
+		    return null;
+		});
+
+		System.out.println(message.getText());
 	}
 }
