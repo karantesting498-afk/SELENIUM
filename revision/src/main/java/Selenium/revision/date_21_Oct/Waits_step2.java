@@ -514,6 +514,8 @@ The wait does not necessarily consume all ten seconds; it finishes as soon as a 
     .pollingEvery(Duration.ofSeconds(1))
     .ignoring(NoSuchElementException.class)
     .ignoring(StaleElementReferenceException.class);
+    
+    
 		 */
 		FluentWait<WebDriver> wait = new FluentWait<>(driver)
 		        .withTimeout(Duration.ofSeconds(10))
