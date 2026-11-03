@@ -79,6 +79,7 @@ Also, the instance variable declared at class level would remain unchanged if a 
 
 
 
+
 	 * 
 	 * 5. 	Then setupClass() will be executed before every test method.
 	 * 
