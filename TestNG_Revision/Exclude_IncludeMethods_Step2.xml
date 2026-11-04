@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 
+<!-- 
+	
+	Exclude method exclude specified test method from class.( eg: total 100 test casses; exlcude 10; result : 90 test case executed 
+	
+	and 10 are excluded)
+	
+	Include method only exceute specified emthod from the class (e.g: total 100 test cases; inlcude 5 test; 5 test method executed
+	and other 95 are skipped)
+	
+	
+-->
 
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
@@ -15,7 +26,7 @@
 				
 					<methods>
 					
-						<exclude name="mobileLoginCarLoan"></exclude>
+						<exclude name="mobileLoginCarLoan"/>
 					
 					</methods>
 				
@@ -23,6 +34,23 @@
 		
 		</classes>
 	
+	
+	</test>
+	
+	
+	<test name="Include Method">
+	
+		<classes>
+		
+			<class name="test.day4">
+			
+				<methods>
+				
+					<include name="loginAPIHomeLoan"/>
+				</methods>
+			</class>
+		
+		</classes>
 	
 	</test>
 
