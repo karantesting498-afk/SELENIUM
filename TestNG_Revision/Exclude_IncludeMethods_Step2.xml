@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+
+<suite name="Method_Exclude Or Include">
+
+	<test name="Exclude Method">
+	
+		<classes>
+			
+				<class name="test.day3">
+				
+					<methods>
+					
+						<exclude name="mobileLoginCarLoan"></exclude>
+					
+					</methods>
+				
+				</class>
+		
+		</classes>
+	
+	
+	</test>
+
+
+
+
+
+</suite>

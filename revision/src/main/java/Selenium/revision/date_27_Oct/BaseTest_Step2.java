@@ -74,7 +74,7 @@ public class BaseTest_Step2 {
 	 *
 	 *BeforeClass is executed once per class.
 	 *
-	 *BeforeMethoed will be executed once per every test method in that class
+	 *BeforeMethoed will be executed once per every test method in that classa
 	 */
 
 }
