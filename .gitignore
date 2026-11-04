@@ -2,3 +2,8 @@
 **/target/
 **/bin/
 *.class
+
+
+
+# TestNG generated reports
+**/test-output/
