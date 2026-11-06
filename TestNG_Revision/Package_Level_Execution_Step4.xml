@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Package Level execution">
+
+	<test name="Executing all package test cases">
+	
+		<packages>
+		
+			<package name="test"></package>
+		</packages>
+	</test>
+</suite>

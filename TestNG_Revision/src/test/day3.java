@@ -7,20 +7,20 @@ public class day3 {
 	@Test
 	public void webLoginCarLoan()
 	{
-		System.out.println("Web Login");
+		System.out.println("Web Car Login");
 	}
 	
 	
 	@Test
 	public void mobileLoginCarLoan()
 	{
-		System.out.println("Mobile Login");
+		System.out.println("Mobile  Car Login");
 	}
 	
 	@Test
 	public void loginAPICarLoan()
 	{
-		System.out.println("API Login");
+		System.out.println("API Car Login");
 	}
 
 }
