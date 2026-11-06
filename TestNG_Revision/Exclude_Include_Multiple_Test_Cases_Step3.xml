@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+	
+	We can use mobile.* ( here * refers to all test cases in that class with name starting with mobile.)
+	
+	Through this we can exclude all mobile test cases.
+	
+	exclude- ALL test methods whose name starts with mobile will be skipped.
+	
+	include - Only test methods whose name starts with mobile will be executed.
+	
+	here name like mobile.* is case sensitive.
+	
+	mobile.* and Mobile.* are different
+	
+	
+	
+-->
+
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+
+
+<suite name="Exclude and Include">
+
+	<test name="Exclude All Mobile test cases">
+	
+		<classes>
+			<class name="test.day3">
+				<methods>
+					<exclude name="mobile.*"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	
+	<test name="Include all mobile test cases">
+		<classes>
+		
+			<class name="test.day4">
+				<methods>
+					<include name="mobile.*"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>
+
+
+
