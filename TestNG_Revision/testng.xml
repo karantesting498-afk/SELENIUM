@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="TestNG_ Revision">
+  <test thread-count="5" name="Testing">
+    <classes>
+      <class name="test.day3"/>
+      <class name="test.day2"/>
+      <class name="test.day5"/>
+      <class name="test.day4"/>
+      <class name="test.day1"/>
+    </classes>
+  </test> <!-- Testing -->
+</suite> <!-- TestNG_ Revision -->
