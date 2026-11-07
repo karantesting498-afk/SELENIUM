@@ -1,37 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="6" passed="5" failed="1" skipped="0">
+<testng-results ignored="0" total="5" passed="2" failed="2" skipped="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-11-06T17:20:27 IST" name="Default suite" finished-at="2026-11-06T17:20:37 IST" duration-ms="10010">
+  <suite started-at="2026-11-07T17:57:52 IST" name="Default suite" finished-at="2026-11-07T17:57:52 IST" duration-ms="111">
     <groups>
     </groups>
-    <test started-at="2026-11-06T17:20:27 IST" name="Default test" finished-at="2026-11-06T17:20:37 IST" duration-ms="10010">
-      <class name="Selenium.revision.date_28_Oct.Q3_Step4">
-        <test-method signature="launchBrowser()[pri:0, instance:Selenium.revision.date_28_Oct.Q3_Step4@31304f14]" started-at="2026-11-06T17:20:27 IST" name="launchBrowser" finished-at="2026-11-06T17:20:37 IST" duration-ms="9810" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchBrowser -->
-        <test-method signature="login()[pri:0, instance:Selenium.revision.date_28_Oct.Q3_Step4@31304f14]" started-at="2026-11-06T17:20:37 IST" name="login" finished-at="2026-11-06T17:20:37 IST" depends-on-methods="Selenium.revision.date_28_Oct.Q3_Step4.launchBrowser" duration-ms="4" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login -->
-        <test-method signature="searchProduct()[pri:0, instance:Selenium.revision.date_28_Oct.Q3_Step4@31304f14]" started-at="2026-11-06T17:20:37 IST" name="searchProduct" finished-at="2026-11-06T17:20:37 IST" depends-on-methods="Selenium.revision.date_28_Oct.Q3_Step4.login" duration-ms="5" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- searchProduct -->
-        <test-method signature="addToCart()[pri:0, instance:Selenium.revision.date_28_Oct.Q3_Step4@31304f14]" started-at="2026-11-06T17:20:37 IST" name="addToCart" finished-at="2026-11-06T17:20:37 IST" depends-on-methods="Selenium.revision.date_28_Oct.Q3_Step4.searchProduct" duration-ms="4" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addToCart -->
-        <test-method signature="applyCoupon()[pri:0, instance:Selenium.revision.date_28_Oct.Q3_Step4@31304f14]" started-at="2026-11-06T17:20:37 IST" name="applyCoupon" finished-at="2026-11-06T17:20:37 IST" depends-on-methods="Selenium.revision.date_28_Oct.Q3_Step4.addToCart" duration-ms="18" status="FAIL">
+    <test started-at="2026-11-07T17:57:52 IST" name="Default test" finished-at="2026-11-07T17:57:52 IST" duration-ms="111">
+      <class name="Selenium.revision.date_31Oct.LoginTest_Step1">
+        <test-method signature="dashboardCheck()[pri:0, instance:Selenium.revision.date_31Oct.LoginTest_Step1@a1153bc]" started-at="2026-11-07T17:57:52 IST" name="dashboardCheck" finished-at="2026-11-07T17:57:52 IST" duration-ms="23" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Coupon expired]]>
+              <![CDATA[null]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Coupon expired
+              <![CDATA[java.lang.AssertionError: null
 at org.testng.Assert.fail(Assert.java:111)
-at Selenium.revision.date_28_Oct.Q3_Step4.applyCoupon(Q3_Step4.java:65)
+at org.testng.Assert.fail(Assert.java:116)
+at Selenium.revision.date_31Oct.LoginTest_Step1.dashboardCheck(LoginTest_Step1.java:79)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -63,12 +48,127 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- applyCoupon -->
-        <test-method signature="checkout()[pri:0, instance:Selenium.revision.date_28_Oct.Q3_Step4@31304f14]" started-at="2026-11-06T17:20:37 IST" name="checkout" finished-at="2026-11-06T17:20:37 IST" depends-on-methods="Selenium.revision.date_28_Oct.Q3_Step4.addToCart" duration-ms="3" status="PASS">
+        </test-method> <!-- dashboardCheck -->
+        <test-method signature="loginTest(java.lang.String,java.lang.String)[pri:0, instance:Selenium.revision.date_31Oct.LoginTest_Step1@a1153bc]" started-at="2026-11-07T17:57:52 IST" name="loginTest" data-provider="loginData" finished-at="2026-11-07T17:57:52 IST" duration-ms="6" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[admin123]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- checkout -->
-      </class> <!-- Selenium.revision.date_28_Oct.Q3_Step4 -->
+        </test-method> <!-- loginTest -->
+        <test-method signature="loginTest(java.lang.String,java.lang.String)[pri:0, instance:Selenium.revision.date_31Oct.LoginTest_Step1@a1153bc]" started-at="2026-11-07T17:57:52 IST" name="loginTest" data-provider="loginData" finished-at="2026-11-07T17:57:52 IST" duration-ms="1" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[user]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[user123]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Login failed]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Login failed
+at org.testng.Assert.fail(Assert.java:111)
+at Selenium.revision.date_31Oct.LoginTest_Step1.loginTest(LoginTest_Step1.java:68)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:697)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:744)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTest -->
+        <test-method signature="loginTest(java.lang.String,java.lang.String)[pri:0, instance:Selenium.revision.date_31Oct.LoginTest_Step1@a1153bc]" started-at="2026-11-07T17:57:52 IST" name="loginTest" data-provider="loginData" finished-at="2026-11-07T17:57:52 IST" duration-ms="3" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[manager]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[manager123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTest -->
+        <test-method signature="verifyDashboard()[pri:0, instance:Selenium.revision.date_31Oct.LoginTest_Step1@a1153bc]" started-at="2026-11-07T17:57:52 IST" name="verifyDashboard" finished-at="2026-11-07T17:57:52 IST" depends-on-methods="Selenium.revision.date_31Oct.LoginTest_Step1.dashboardCheck" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Selenium.revision.date_31Oct.LoginTest_Step1.verifyDashboard() on instance Selenium.revision.date_31Oct.LoginTest_Step1@a1153bc depends on not successfully finished methods 
+[Selenium.revision.date_31Oct.LoginTest_Step1.dashboardCheck() on instance Selenium.revision.date_31Oct.LoginTest_Step1@a1153bc]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Selenium.revision.date_31Oct.LoginTest_Step1.verifyDashboard() on instance Selenium.revision.date_31Oct.LoginTest_Step1@a1153bc depends on not successfully finished methods 
+[Selenium.revision.date_31Oct.LoginTest_Step1.dashboardCheck() on instance Selenium.revision.date_31Oct.LoginTest_Step1@a1153bc]
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:159)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:744)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyDashboard -->
+      </class> <!-- Selenium.revision.date_31Oct.LoginTest_Step1 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
