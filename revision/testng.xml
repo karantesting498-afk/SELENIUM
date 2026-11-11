@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="Selenium.revision.date_2026_10_25.Q5_Step6"/>
+      <class name="Selenium.revision.date_2026_10_24.ProductPageTest_Step6"/>
+      <class name="Selenium.revision.date_2026_11_01.BaseTest_Step4"/>
+      <class name="Selenium.revision.date_2026_10_23.StudentTest_Step3"/>
+      <class name="Selenium.revision.AppTest"/>
+      <class name="Selenium.revision.date_2026_10_26.Q2_Step3"/>
+      <class name="Selenium.revision.date_2026_10_25.LoginTest_Step4"/>
+      <class name="Selenium.revision.date_2026_10_25.Q4_Step5"/>
+      <class name="Selenium.revision.date_2026_10_30.EmployeeTest_Step4"/>
+      <class name="Selenium.revision.date_2026_10_22.Test_Annotation_Step2"/>
+      <class name="Selenium.revision.date_2026_11_01.MyListeners"/>
+      <class name="Selenium.revision.date_2026_11_01.Q5_Step6"/>
+      <class name="Selenium.revision.date_2026_10_27.LoginTest_Step3"/>
+      <class name="Selenium.revision.date_2026_10_31.LoginTest_Step2"/>
+      <class name="Selenium.revision.date_2026_10_25.ProductPageTest_Step3"/>
+      <class name="Selenium.revision.date_2026_10_31.Q3_Step3"/>
+      <class name="Selenium.revision.date_2026_10_23.EmployeeTest_Step5"/>
+      <class name="Selenium.revision.date_2026_10_24.BrowserTest_Step3"/>
+      <class name="Selenium.revision.date_2026_10_24.Q3_Step4"/>
+      <class name="Selenium.revision.date_2026_10_23.GoogleTest_Step4"/>
+      <class name="Selenium.revision.date_2026_10_29.EmployeeTest_Step4"/>
+      <class name="Selenium.revision.date_2026_10_28.Q3_Step4"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
