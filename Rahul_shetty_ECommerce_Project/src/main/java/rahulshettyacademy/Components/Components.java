@@ -1,16 +1,25 @@
 package rahulshettyacademy.Components;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Components {
 	
 	WebDriver driver;
+	
+	@FindBy(xpath = "//button[@routerlink='/dashboard/cart']")
+	public WebElement cartButton;
+	
+	@FindBy(xpath = "//button[@routerlink='/dashboard/myorders']")
+	public WebElement orderHistoryButton;
+	
 	public Components(WebDriver driver) {
 		// TODO Auto-generated constructor stub
 		this.driver= driver;
@@ -21,6 +30,19 @@ public class Components {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+	}
+	
+	public void waitForWebElementToAppear(WebElement element) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
+		wait.until(ExpectedConditions.visibilityOf(element));
+	}
+	
+	
+	public void waitForWebElementListToAppear(List<WebElement> element) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
+		wait.until(ExpectedConditions.visibilityOfAllElements(element));
 	}
 	
 	public void waitForElementToClickable(WebElement element)

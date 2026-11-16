@@ -1,3 +1,6 @@
+/*
+ * THis class code is converted using the Page object model  , encapsulation etc.
+ */
 package Personal_Web.Rahul_shetty_ECommerce_Project;
 
 import java.util.HashMap;
@@ -62,10 +65,9 @@ public class StandAloneTest2 {
 		String deliveryCountry = "India";
 
 		
-		card.addCardDetails("1234 5678 1234 5678", "123", "Karan Bajaj", "New Coupon", "10", "29", "IND", deliveryCountry);
+		OrderConfirmation confirm = card.addCardDetails("1234 5678 1234 5678", "123", "Karan Bajaj", "New Coupon", "10", "29", "IND", deliveryCountry);
 		
 		
-		OrderConfirmation confirm = new OrderConfirmation(driver);
 		
 		Assert.assertTrue(confirm.orderConfirmationAssertion().equalsIgnoreCase("Thankyou for the order."));
 		

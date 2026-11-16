@@ -63,7 +63,7 @@ public class CardDetails extends Components {
 		select.selectByContainsVisibleText(date);
 	}
 
-	public void addCardDetails(String newCardNumber, String newCVVCode, String newCardName, String newCouponCode,
+	public OrderConfirmation addCardDetails(String newCardNumber, String newCVVCode, String newCardName, String newCouponCode,
 
 			String newMonthDate, String newDayDate , String initals , String deliveryCountry) {
 		
@@ -84,6 +84,10 @@ public class CardDetails extends Components {
 		selectCountry(initals , deliveryCountry);
 		
 		placeOrder();
+		
+		OrderConfirmation confirm = new OrderConfirmation(driver);
+
+		return confirm;
 	}
 	
 	public void selectCountry(String initals , String deliveryCountry)

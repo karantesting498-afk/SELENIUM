@@ -39,16 +39,16 @@ public class ProductCatelogue extends Components {
 	@FindBy(xpath = "//button[@routerlink='/dashboard/cart']/child::label")
 	WebElement cartCount;
 	
-	@FindBy(xpath = "//button[@routerlink='/dashboard/cart']")
-	WebElement cart;
+	@FindBy(xpath = "//table/descendant::tr/descendant::td[2]")
+	List<WebElement> productVisibleVerification;
 
-	By productVisibleVerification = By.xpath("//section[@id='products']/descendant::div[@class='card']");
+	By productCatelogueVisible = By.xpath("//section[@id='products']/descendant::div[contains(@class,'mb-3')]");
 	By spineer = By.xpath("//ngx-spinner[contains(@class,'ng-star-inserted')]");
 	By successMsg = By.xpath("//div[@id='toast-container']");
 
 	public List<WebElement> getProductList() {
 
-		waitForElementToAppear(productVisibleVerification);
+		waitForElementToAppear(productCatelogueVisible);
 		System.out.println("product list size:" + products.size());
 
 		return products;
@@ -100,7 +100,7 @@ public class ProductCatelogue extends Components {
 			System.out.println("Product  added");
 			System.out.println("Current cart count is : " + CurrentProductCount);
 
-			cart.click();
+			cartButton.click();
 			
 			
 		} else {
@@ -109,5 +109,17 @@ public class ProductCatelogue extends Components {
 		
 
 	}
+	
+	
+	public OrderHistory goToOrderHistory()
+	{
+		waitForElementToAppear(productCatelogueVisible);
+
+		orderHistoryButton.click();
+		
+		OrderHistory orderhistory = new OrderHistory(driver);
+		return orderhistory;
+	}
+	
 
 }

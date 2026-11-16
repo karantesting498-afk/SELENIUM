@@ -1,9 +1,15 @@
+# Eclipse
 .metadata/
+
+# Maven build output
 **/target/
+
+# Compiled Java files
 **/bin/
 *.class
 
-
-
 # TestNG generated reports
 **/test-output/
+
+# Extent Reports
+**/reports/

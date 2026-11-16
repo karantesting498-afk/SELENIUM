@@ -1,3 +1,7 @@
+/*
+ * This class contain A to z code for the flow
+ */
+
 package Personal_Web.Rahul_shetty_ECommerce_Project;
 
 import java.sql.Driver;

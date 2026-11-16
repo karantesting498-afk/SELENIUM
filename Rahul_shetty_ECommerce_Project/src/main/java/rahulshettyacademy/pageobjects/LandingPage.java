@@ -39,6 +39,9 @@ public class LandingPage extends Components {
 
 	@FindBy(id = "login")
 	WebElement loginButton;
+	
+	@FindBy(xpath = "//div[@role='alert' and contains(@class,'ng-star-inserted')]")
+	WebElement incorrectLoginCredentials;
 
 	public ProductCatelogue loginApplication(String loginEmail , String loginPass) {
 		
@@ -54,6 +57,13 @@ public class LandingPage extends Components {
 		return catelogue;
 	}
 	
+	public String getErrorMsg()
+	{
+		waitForWebElementToAppear(incorrectLoginCredentials);
+		System.out.println(incorrectLoginCredentials.getText());
+		return incorrectLoginCredentials.getText();
+		
+	}
 	
 	public void goTo(String loginUrl)
 	{
