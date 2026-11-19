@@ -28,11 +28,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import rahulshettyacademy.pageobjects.LandingPage;
 
 public class TestComponent {
+	
+	
+	
 	public WebDriver driver;
 	
-	
-	
-
 	public WebDriver getDriver() {
 		return driver;
 	}
