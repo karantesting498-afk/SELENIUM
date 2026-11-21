@@ -1,5 +1,6 @@
 package trackofield.pom.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,6 +17,8 @@ public class LoginPage extends PomComponents {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+	
+	By loginLoader = By.xpath("//div[@id='pageLoader']/descendant::button");
 
 	
 	@FindBy(id="companyIdentifier")
@@ -38,5 +41,7 @@ public class LoginPage extends PomComponents {
 		password.sendKeys(pwd);
 		
 		loginButton.click();
+		
+		waitForInvisibilityOfElmentBy(loginLoader);
 	}
 }

@@ -38,6 +38,7 @@ public class DashboardPage  extends PomComponents{
 		
 		waitForVisbilityOfElementsBy(subMenu);
 		
+		waitForElementToBeClickableElement(customerSubMenuOption);
 		customerSubMenuOption.click();
 		
 	}

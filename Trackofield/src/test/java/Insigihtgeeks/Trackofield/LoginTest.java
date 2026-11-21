@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import trackofield.pom.pages.DashboardPage;
 import trackofield.pom.pages.LoginPage;
 import trackofiled.test_component.BaseTest;
 
@@ -29,8 +30,9 @@ public class LoginTest extends BaseTest {
 		
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@id='cardListView']/child::div[contains(@class,'mb-3')]")));
+		DashboardPage dashboardObj = new DashboardPage(driver);
 		
+		dashboardObj.redirectToCustomerPage();
 		
 	}
 	
