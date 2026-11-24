@@ -12,8 +12,6 @@ public class PomComponents {
 	
 	WebDriver driver;
 	
-	
-	
 	public PomComponents(WebDriver driver) {
 		super();
 		this.driver = driver;
@@ -33,6 +31,13 @@ public class PomComponents {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	}
+	
+	public void waitForVisibilityOfElement(WebElement locator)
+	{
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
+		wait.until(ExpectedConditions.visibilityOf(locator));
 	}
 	
 	public void waitForInvisibilityOfElmentBy(By locator)

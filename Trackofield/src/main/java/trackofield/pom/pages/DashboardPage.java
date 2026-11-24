@@ -3,6 +3,7 @@ package trackofield.pom.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -27,19 +28,27 @@ public class DashboardPage  extends PomComponents{
 	
 	By subMenu = By.xpath("//li[@id='module-workforce-management']/descendant::div[@class='submenu-scroll-wrapper']/child::li");
 	
-	@FindBy(xpath = "//li[@id='module-workforce-management']/descendant::div[@class='submenu-scroll-wrapper']/child::a[@title='Customers']")
+	@FindBy(xpath = "//li[@id='module-workforce-management']/descendant::div[@class='submenu-scroll-wrapper']/descendant::a[@href='/web/0/customer/list?lang=en']")
 	WebElement customerSubMenuOption;
 	
 	
-	public void redirectToCustomerPage()
+	public CustomerPage navigateToCustomerPage()
 	{
 		waitForVisbilityOfElementsBy(employeeCardList);
-		workForceManagement.click();
+		
+		Actions action = new Actions(driver);
+		
+		action.click(workForceManagement).build().perform();
 		
 		waitForVisbilityOfElementsBy(subMenu);
 		
 		waitForElementToBeClickableElement(customerSubMenuOption);
-		customerSubMenuOption.click();
+		
+		action.click(customerSubMenuOption).build().perform();
+		
+		CustomerPage customer = new CustomerPage(driver);
+		return customer;
+		
 		
 	}
 	

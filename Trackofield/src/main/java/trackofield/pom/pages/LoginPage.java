@@ -34,7 +34,7 @@ public class LoginPage extends PomComponents {
 	WebElement loginButton;
 	
 	
-	public void login(String cId, String uName, String pwd)
+	public DashboardPage login(String cId, String uName, String pwd)
 	{
 		companyIdentifiier.sendKeys(cId);
 		username.sendKeys(uName);
@@ -43,5 +43,7 @@ public class LoginPage extends PomComponents {
 		loginButton.click();
 		
 		waitForInvisibilityOfElmentBy(loginLoader);
+		DashboardPage obj = new DashboardPage(driver);
+		return obj;
 	}
 }
