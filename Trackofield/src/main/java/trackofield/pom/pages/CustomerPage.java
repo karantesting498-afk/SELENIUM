@@ -23,6 +23,8 @@ public class CustomerPage extends PomComponents{
 	}
 	
 	By customerList = By.xpath("//table[@id='customer-list-table']/descendant::tbody/child::tr[1]");
+	
+	By customerSearchBar = By.xpath("//input[contains(@class,'select2-search__field')]");
 
 	@FindBy(xpath ="//button[contains(@class,'add-customer-btn')]")
 	WebElement addCustomer;
@@ -70,6 +72,25 @@ public class CustomerPage extends PomComponents{
 	@FindBy(id="save-customer-btn")
 	WebElement saveCustomer;
 	
+	@FindBy(id="select2-customer-select-container")
+	WebElement searchCustomerField;
+
+	@FindBy(id="select2-customer-select-results")
+	WebElement searchCustomerDropdownField;
+	
+	@FindBy(xpath = "//ul[@id='select2-customer-select-results']/child::li")
+	List<WebElement> searchList;
+
+	@FindBy(id = "pageLoader")
+	WebElement pageLoader;
+	
+	@FindBy(xpath = "//div[@id='swal2-content']")
+	WebElement successPopupMsg;
+	
+	@FindBy(xpath = "//button[contains(@class,'swal2-confirm') and normalize-space(.)='OK']")
+	WebElement confirmButton;
+	
+	
 	public void addCustomerModal()
 	{
 		waitForVisibilityOfElementBy(customerList);
@@ -102,8 +123,30 @@ public class CustomerPage extends PomComponents{
 
 	}
 	
+	public String addCustomerWithoutGeofence(String name)
+	{
+		addCustomerModal();
+		waitForVisibilityOfElement(addCustomerModal);
+		customerName.sendKeys(name);
+		saveCustomer.click();
+
+		if(!name.isBlank())
+		{
+			waitForVisibilityOfElement(successPopupMsg);
+			String msg = successPopupMsg.getText();
+			
+			waitForElementToBeClickableElement(confirmButton);
+			confirmButton.click();
+			return msg;
+		}
+		else
+		{
+			return null;
+		}
+		
+	}
 	
-	public void addCustomer(String name, String geoName)
+	public String addCustomer(String name, String geoName)
 	{
 		boolean customerTypeFound = false;
 		addCustomerModal();
@@ -137,12 +180,55 @@ public class CustomerPage extends PomComponents{
 		addGeofenceInCustomer(geoName);
 		
 		saveCustomer.click();
+		
+		waitForVisibilityOfElement(successPopupMsg);
+		String msg = successPopupMsg.getText();
+		
+		waitForElementToBeClickableElement(confirmButton);
+		confirmButton.click();
+		return msg;
 	}
 	
-	public String checkAddedName()
+	public String checkAddedNameInCustomerList()
+
 	{
 		waitForVisibilityOfElementBy(customerList);
 
 		return firstCustomers.findElement(By.xpath(".//a")).getAttribute("title");
 	}
+	
+	public String  returnStyleOfName()
+	{
+		
+		return customerName.getAttribute("style");
+	}
+	
+	public String Search(String name)
+	{
+		waitForVisibilityOfElementBy(customerList);
+
+		waitForElementToBeClickableElement(searchCustomerField);
+		searchCustomerField.click();
+		
+		waitForVisibilityOfElement(searchCustomerDropdownField);
+		
+		waitForElementToBeClickableBy(customerSearchBar);
+		
+		driver.findElement(customerSearchBar).sendKeys(name);
+
+		waitForVisibilityOfElements(searchList);
+		
+		searchList.get(0).click();
+		
+		waitForInvisibilityOfElment(pageLoader);
+		
+		waitForVisibilityOfElementBy(customerList);
+
+		
+		return firstCustomers.findElement(By.xpath(".//a")).getAttribute("title");
+
+		
+	}
+	
+	
 }

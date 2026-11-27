@@ -26,7 +26,7 @@ public class DashboardPage  extends PomComponents{
 	@FindBy(xpath = "//li[@id='module-workforce-management']")
 	WebElement workForceManagement;
 	
-	By subMenu = By.xpath("//li[@id='module-workforce-management']/descendant::div[@class='submenu-scroll-wrapper']/child::li");
+	By subMenu = By.xpath("//li[@id='module-workforce-management']/descendant::div[@class='submenu-scroll-wrapper']/child::li[1]");
 	
 	@FindBy(xpath = "//li[@id='module-workforce-management']/descendant::div[@class='submenu-scroll-wrapper']/descendant::a[@href='/web/0/customer/list?lang=en']")
 	WebElement customerSubMenuOption;
@@ -40,7 +40,7 @@ public class DashboardPage  extends PomComponents{
 		
 		action.click(workForceManagement).build().perform();
 		
-		waitForVisbilityOfElementsBy(subMenu);
+		waitForVisibilityOfElementBy(subMenu);
 		
 		waitForElementToBeClickableElement(customerSubMenuOption);
 		

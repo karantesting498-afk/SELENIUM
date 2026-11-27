@@ -1,6 +1,7 @@
 package trackofield.pom_components;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -40,11 +41,25 @@ public class PomComponents {
 		wait.until(ExpectedConditions.visibilityOf(locator));
 	}
 	
+	public void waitForVisibilityOfElements(List<WebElement> locator)
+	{
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
+		wait.until(ExpectedConditions.visibilityOfAllElements(locator));
+	}
+	
 	public void waitForInvisibilityOfElmentBy(By locator)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+	}
+	
+	public void waitForInvisibilityOfElment(WebElement ele)
+	{
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+		wait.until(ExpectedConditions.invisibilityOf(ele));
 	}
 	
 	public void waitForElementToBeClickableElement(WebElement ele)
@@ -53,6 +68,14 @@ public class PomComponents {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
 		wait.until(ExpectedConditions.elementToBeClickable(ele));
+	}
+	
+	public void waitForElementToBeClickableBy(By locator)
+
+	{
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
+		wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
 
 }
