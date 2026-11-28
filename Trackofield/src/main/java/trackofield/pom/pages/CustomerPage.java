@@ -35,10 +35,7 @@ public class CustomerPage extends PomComponents{
 	@FindBy(xpath = "//div[@id='add-customer-modal']")
 	WebElement addCustomerModal;
 	
-	@FindBy(xpath = "//span[@id='select2-add-customer-type-container']")
-	WebElement customerType;
-	
-	@FindBy(xpath = "//span[contains(@class,'select2-dropdown')]")
+	@FindBy(xpath = "//span[@class='select2-results']")
 	WebElement customerTypeDropdown;
 	
 	@FindBy(xpath = "//ul[@id='select2-add-customer-type-results']/child::li")
@@ -84,12 +81,26 @@ public class CustomerPage extends PomComponents{
 	@FindBy(id = "pageLoader")
 	WebElement pageLoader;
 	
-	@FindBy(xpath = "//div[@id='swal2-content']")
-	WebElement successPopupMsg;
+	@FindBy(xpath = "//button[contains(@class,'swal2-confirm') and normalize-space(.)='Yes']")
+	WebElement yesButton;
 	
-	@FindBy(xpath = "//button[contains(@class,'swal2-confirm') and normalize-space(.)='OK']")
-	WebElement confirmButton;
+	@FindBy(xpath = "//td[@class=' customer-status-data-btn']/child::button")
+	WebElement statusChangeButton;
 	
+	@FindBy(xpath = "//td[@class=' geoNames']/child::button")
+	WebElement viewLocationButton;
+	
+	@FindBy(id = "view-leaflet-map-modal")
+	WebElement customerGeofenceModal;
+	
+	@FindBy(id= "view-leaflet-map")
+	WebElement leafletMap;
+	
+	@FindBy(xpath = "//div[contains(@class,'leaflet-overlay-pane')]/descendant::path[@class='leaflet-interactive']")
+	WebElement geofenceOnMap;
+	
+	@FindBy(xpath = "//div[@id='geofenceCardContainer']/descendant::h5")
+	WebElement geofenceNameInList;
 	
 	public void addCustomerModal()
 	{
@@ -129,14 +140,19 @@ public class CustomerPage extends PomComponents{
 		waitForVisibilityOfElement(addCustomerModal);
 		customerName.sendKeys(name);
 		saveCustomer.click();
-
+		
+		By successPopupMsg = By.xpath("//div[@id='swal2-content']");
+		By okButton = By.xpath("//button[contains(@class,'swal2-confirm') and normalize-space(.)='OK']");
+				
+				
 		if(!name.isBlank())
 		{
-			waitForVisibilityOfElement(successPopupMsg);
-			String msg = successPopupMsg.getText();
 			
-			waitForElementToBeClickableElement(confirmButton);
-			confirmButton.click();
+			waitForVisibilityOfElementBy(successPopupMsg);
+			String msg = driver.findElement(successPopupMsg).getText();
+			
+			waitForElementToBeClickableBy(okButton);
+			driver.findElement(okButton).click();
 			return msg;
 		}
 		else
@@ -151,7 +167,10 @@ public class CustomerPage extends PomComponents{
 		boolean customerTypeFound = false;
 		addCustomerModal();
 		waitForVisibilityOfElement(addCustomerModal);
-		customerType.click();
+		
+		By customerType = By.xpath("//span[@id='select2-add-customer-type-container']");
+		waitForElementToBeClickableBy(customerType);
+		driver.findElement(customerType).click();
 		
 		waitForVisibilityOfElement(customerTypeDropdown);
 		
@@ -181,11 +200,14 @@ public class CustomerPage extends PomComponents{
 		
 		saveCustomer.click();
 		
-		waitForVisibilityOfElement(successPopupMsg);
-		String msg = successPopupMsg.getText();
+		By successPopupMsg = By.xpath("//div[@id='swal2-content']");
+		By okButton = By.xpath("//button[contains(@class,'swal2-confirm') and normalize-space(.)='OK']");
+
+		waitForVisibilityOfElementBy(successPopupMsg);
+		String msg = driver.findElement(successPopupMsg).getText();
 		
-		waitForElementToBeClickableElement(confirmButton);
-		confirmButton.click();
+		waitForElementToBeClickableBy(okButton);
+		driver.findElement(okButton).click();
 		return msg;
 	}
 	
@@ -203,7 +225,7 @@ public class CustomerPage extends PomComponents{
 		return customerName.getAttribute("style");
 	}
 	
-	public String Search(String name)
+	public WebElement Search(String name)
 	{
 		waitForVisibilityOfElementBy(customerList);
 
@@ -225,10 +247,67 @@ public class CustomerPage extends PomComponents{
 		waitForVisibilityOfElementBy(customerList);
 
 		
-		return firstCustomers.findElement(By.xpath(".//a")).getAttribute("title");
+		return firstCustomers;
+		
+	}
+	
+	public String returnCustomerStatus(String name)
+	{
+		WebElement searchedElement = Search(name);
+		
+		String status = searchedElement.findElement(By.xpath(".//td[@class=' status-data']")).getText();
+		return status;
+	}
+	
+	public void statusChange()
+	{
+		By successPopupMsg = By.xpath("//div[@id='swal2-content']");
+		By okButton = By.xpath("//button[contains(@class,'swal2-confirm') and normalize-space(.)='OK']");
+		By yesButton = By.xpath("//button[contains(@class,'swal2-confirm') and normalize-space(.)='Yes']");
+		
+		waitForElementToBeClickableElement(statusChangeButton);
+		statusChangeButton.click();
+		
+		waitForVisibilityOfElementBy(successPopupMsg);
+		waitForElementToBeClickableBy(yesButton);
+		driver.findElement(yesButton).click();
+		
+		waitForInvisibilityOfElmentBy(yesButton);
+		
+		waitForVisibilityOfElementBy(successPopupMsg);
+		waitForElementToBeClickableBy(okButton);
+		driver.findElement(okButton).click();
+		waitForInvisibilityOfElmentBy(okButton);
 
 		
 	}
 	
+	public boolean viewLocation()
+	{
+		waitForElementToBeClickableElement(viewLocationButton);
+		viewLocationButton.click();
+		
+		waitForVisibilityOfElement(customerGeofenceModal);
+		
+		return true;
+	}
+	
+	public boolean checkLeafletMap()
+	{
+		waitForVisibilityOfElement(leafletMap);
+		return true;
+	}
+	
+	public boolean checkGeofenceOnMap()
+	{
+		waitForVisibilityOfElement(geofenceOnMap);
+		return true;
+	}
+	
+	public WebElement checkGeofenceDisplayName()
+	{
+		waitForVisibilityOfElement(geofenceNameInList);
+		return geofenceNameInList;
+	}
 	
 }
